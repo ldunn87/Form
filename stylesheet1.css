@@ -1,0 +1,450 @@
+
+body {
+	background: #6d7f8c;
+	line-height: 1.45rem;
+	color: #444;
+
+	&.freeze { pointer-events: none; }
+}
+
+h1 {
+	margin: 0;
+	margin-bottom: 2rem;
+	text-align: center;
+	font-weight: normal;
+	line-height: 2.2rem;
+}
+
+
+/* Form styles */
+
+.section {
+  position:relative;
+	max-width: 500px;
+	padding: 4rem;
+	margin: 5vh auto 0 auto;
+	background: white;
+	box-shadow: 0 1px 2px rgba(0,0,0,.3);
+
+	&:before {
+		content: "";
+		width: 100%;
+		background: #a7b9c7;
+		height: 170px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		border-bottom: 1px solid rgba(0,0,0,.2);
+	}
+}
+
+.form-instructions {
+	text-align: center;
+}
+
+form {
+	margin: 2rem auto;
+	width: 100%;
+	max-width: 330px;
+	will-change: transform;
+}
+
+
+/* Input styles */
+
+.fieldgroup {
+	margin: 1.5rem 0;
+	position: relative;
+}
+
+label {
+	position: absolute;
+	top: .8rem;
+	left: 0;
+	display: block;
+	font-size: 1rem;
+	transition: 2s ease-out;
+	opacity: .5;
+	will-change: top, font-size;
+
+	&:hover {
+		cursor: text;
+	}
+}
+
+input {
+	border: 1px solid #fff;
+	font-size: 1.2rem;
+	padding: .6rem;
+	padding-left: 0;
+	background:transparent;
+	border: none;
+	border-bottom: 2px solid #4b4d4f;
+	width: calc(100% - .6rem);
+	max-width: 350px;
+	border-radius: 0;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:valid {
+		border-color: #444;
+	}
+
+	&:focus + label,
+	&.hasInput + label {
+		top: -.8rem;
+		font-size: .7rem;
+	}
+}
+
+
+/* Buttons */
+
+.btn {
+	color: #ffffff;
+	background-color: #32a89b;
+	padding: .8rem;
+	font-size: 1.2rem;
+	line-height: 1.2rem;
+	border-radius: 5px;
+	border: 2px solid transparent;
+	min-width: 45px !important;
+
+	&:hover,
+	&.hover {
+		color: #fff;
+		background-color: #4ebd1e;
+		text-shadow: 0 1px 3px rgba(0,0,0,.3);
+		transition: .2s;
+	}
+
+	&:active,
+	&.active {
+		color: #fff;
+		background-color: #4ebd1e;
+		box-shadow: inset 0 2px 10px rgba(0,0,0,.3);
+		outline: 2px solid #4ebd1e;
+	}
+
+	&:focus,
+	&.focus {
+		color: #fff;
+		outline: 2px solid #4ebd1e;
+		outline-offset: 2px;
+	}
+
+	&:active:focus,
+	&.active.focus {
+		outline: 4px solid #4ebd1e;
+	}
+
+#spacer {
+padding: 20px;
+}
+
+/* Reset outlines on button with frozen states */
+	&.hover,
+	&.active { outline: none; }
+}
+
+/* Alternate action */
+.btn-alt {
+	background-color: transparent;
+	color: #4ebd1e;
+	border: 2px solid #4ebd1e;
+
+	&:hover,
+	&.hover {
+		background-color: transparent;
+		color: #4ebd1e - 40;
+		border-color: #4ebd1e - 40;
+		text-shadow: none;
+	}
+
+	&:focus,
+	&.focus {
+		color: #4ebd1e - 20;
+	}
+
+	&:active,
+	&.active {
+		color: #fff;
+		background-color: #4ebd1e;
+		text-shadow: 0 -1px 0 rgba(255,255,255,.2);
+	}
+
+	/* Reset outlines on button with frozen states */
+	&.hover,
+	&.active { outline: none; }
+}
+
+.buttons {
+  display: flex;
+
+}
+
+form .btn {
+	display: inline-block;
+	width: 100%;
+	max-width: 220px;
+	margin: 4rem auto 0 auto;
+}
+
+[data-step="4"] button.btn {
+	display: block;
+	margin: 0 auto;
+}
+
+
+/* Progress bar */
+
+.container {
+  margin-top: 40px;
+  padding-top: 20px;
+  /*background-color: #beb*/
+}
+
+/* Component Styles - Steps */
+.steps {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0 0 2rem 0;
+  list-style: none;
+	-webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+transform: rotate(90deg);
+}
+
+.step {
+  @include flex-center;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  pointer-events: none;
+
+  &--active,
+  &--complete {
+    cursor: pointer;
+    pointer-events: all;
+  }
+
+  &:not(:last-child) {
+    &:before,
+    &:after {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 0.25rem;
+      content: '';
+      transform: translateY(-50%);
+      will-change: width;
+      z-index: -1;
+    }
+  }
+
+  &:before {
+    width: 100%;
+    background-color: $base-muted-color;
+  }
+
+  &:after {
+    width: 0;
+    background-color: $pink;
+  }
+
+  &--complete {
+    &:after {
+      width: 100% !important;
+      opacity: 1;
+      transition: width 0.6s ease-in-out,
+                  opacity 0.6s ease-in-out;
+    }
+  }
+}
+
+.stepIcon {
+  @include flex-center;
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  background-color: $base-background-color;
+  border: 0.25rem solid $base-muted-color;
+  border-radius: 50%;
+  color: transparent;
+  font-size: 2rem;
+
+  &:before {
+    display: block;
+    color: #fff;
+    content: '\2713';
+  }
+
+  .step--complete.step--active & {
+    color: #fff;
+    transition: background-color 0.3s ease-in-out,
+                border-color 0.3s ease-in-out,
+                color 0.3s ease-in-out;
+  }
+
+  .step--incomplete.step--active & {
+    border-color: $pink;
+    transition-delay: 0.5s;
+  }
+
+  .step--complete & {
+    animation: bounce 0.5s ease-in-out;
+    background-color: $pink;
+    border-color: $pink;
+    color: #fff;
+  }
+}
+
+.stepLabel {
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+	-webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+transform: rotate(-90deg);
+
+  .step--incomplete.step--inactive & {
+    color: $base-muted-color;
+  }
+
+  .step--incomplete.step--active & {
+    color: #fff;
+  }
+
+  .step--active & {
+    transition: color 0.3s ease-in-out;
+    transition-delay: 0.5s;
+  }
+}
+
+/* Form animations */
+.animation-container {
+	position: relative;
+	width: 100%;
+	transition: .1s;
+	will-change: padding;
+	overflow: hidden;
+}
+
+.form-step {
+	position: absolute;
+	transition: .1s ease-in-out;
+	transition-timing-function: ease-in-out;
+	will-change: transform, opacity;
+}
+
+.form-step.leaving {
+	animation: left-and-out .5s forwards;
+}
+
+.form-step.waiting {
+	transform: translateX(400px);
+}
+
+.form-step.coming {
+	animation: right-and-in .5s forwards;
+}
+
+
+/* Animation definitions */
+
+@keyframes left-and-out {
+	100% {
+		opacity: 0;
+		transform: translateX(-400px);
+	}
+}
+
+@keyframes right-and-in {
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Animations */
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+
+  33% {
+    transform: scale(0.9);
+  }
+
+  66% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* Helpers */
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
+
+.hidden {
+	display: none;
+}
+
+/* range slider */
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
