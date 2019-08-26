@@ -10,128 +10,131 @@
 
 <body>
   <section class="section">
-  	<h1>Wedding Register</h1>
 
-    <ul class="steps">
-     <progress class="steps-bar" min="0" max="100" value="0" step="33" aria-labelledby="steps-completion"></progress>
-  		<li class="step stepIncomplete stepActive">
-        <span class="stepIcon"></span>
-        <span class="stepLabel">1</span>
-      </li>
-  		<li class="step stepIncomplete stepInactive">
-        <span class="stepIcon"></span>
-        <span class="stepLabel">2</span>
-        </li>
-  		<li class="step stepIncomplete stepInactive">
-        <span class="stepIcon"></span>
-        <span class="stepLabel">3</span>
-        </li>
-  		<li class="step stepIncomplete stepInactive">
-        <span class="stepIcon"></span>
-        <span class="stepLabel">4</span>
-        </li>
+		<div class="col1">
+		
+			<ul class="steps">
+			  <li class="step step--incomplete step--active">
+				<span class="step__icon"></span>
+				<span class="step__label">Step 1</span>
+			  </li>
+			  <li class="step step--incomplete step--inactive">
+				<span class="step__icon"></span>
+				<span class="step__label">Step 2</span>
+			  </li>
+			  <li class="step step--incomplete step--inactive">
+				<span class="step__icon"></span>
+				<span class="step__label">Step 3</span>
+			  </li>
+			  <li class="step step--incomplete step--inactive">
+				<span class="step__icon"></span>
+				<span class="step__label">Step 4</span>
+			  </li>
+			</ul>
 
-  		<p id="steps-completion" class="js-steps-completion sr-only" aria-live="polite">0% complete</p>
-  	</ul>
+		</div>
+		
+		<div class="animation-container col2">
+			<h1>Wedding Register</h1>
+			<!-- Step one -->
+			<div class="form-step js-form-step" data-step="1">
 
-  	<div class="animation-container">
-  		<!-- Step one -->
-  		<div class="form-step js-form-step" data-step="1">
+				<p class="form-instructions" ><strong>Please fill in your details and hit next</strong><br></p>
 
-  			<p class="form-instructions" ><strong>Please fill in your details and hit next</strong><br></p>
+				<form action="" name="form-step-1">
+					<div class="fieldgroup">
+						<input type="text" name="firstName" id="firstName" />
+						<label for="firstName">First name</label>
+					</div>
 
-  			<form action="" name="form-step-1">
-  				<div class="fieldgroup">
-  					<input type="text" name="firstName" id="firstName" />
-  					<label for="firstName">First name</label>
-  				</div>
+					<div class="fieldgroup">
+						<input type="text" name="lastName" id="lastName" />
+						<label for="lastName">Last name</label>
+					</div>
 
-  				<div class="fieldgroup">
-  					<input type="text" name="lastName" id="lastName" />
-  					<label for="lastName">Last name</label>
-  				</div>
+					<div class="fieldgroup">
+						<input type="text" name="email" id="email" />
+						<label for="email">Email</label>
+					</div>
 
-  				<div class="fieldgroup">
-  					<input type="text" name="email" id="email" />
-  					<label for="email">Email</label>
-  				</div>
+					<div class="buttons">
+								<button type="button" class="btn btn-alt js-reset">Reset</button>
+					<div>&nbsp</div>
+							<button type="submit" class="btn">Continue</button>
+					</div>
+				</form>
+			</div>
+				<!-- Step two -->
+				<div class="form-step js-form-step waiting hidden" data-step="2">
 
-  				<div class="buttons">
-  							<button type="button" class="btn btn-alt js-reset">Reset</button>
-                <div>&nbsp</div>
-  						<button type="submit" class="btn">Continue</button>
-  				</div>
-  			</form>
-  		</div>
-  			<!-- Step two -->
-  			<div class="form-step js-form-step waiting hidden" data-step="2">
+					<p class="form-instructions"><p class="form-instructions" ><strong>Please select an amount</strong><br></p>
 
-  				<p class="form-instructions"><p class="form-instructions" ><strong>Please select an amount</strong><br></p>
+					<form action="" name="form-step-2">
+							<div class="fieldgroup">
+									<input type="number" name="Type in an amount" id="amount" />
+					<p>$ <span id="money"></span></p>
+					<div class="slidecontainer">
+					  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+					</div>
+				</div>
 
-  				<form action="" name="form-step-2">
-  						<div class="fieldgroup">
-  								<input type="number" name="Type in an amount" id="amount" />
-                <p>$ <span id="money"></span></p>
-                <div class="slidecontainer">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                </div>
-            </div>
+							<div class="buttons">
+									<button type="button" class="btn btn-alt js-reset">Reset</button>
+					  <div>&nbsp</div>
+									<button type="submit" class="btn">Continue</button>
+							</div>
+					</form>
+			</div>
 
-  						<div class="buttons">
-  								<button type="button" class="btn btn-alt js-reset">Reset</button>
-                  <div>&nbsp</div>
-  								<button type="submit" class="btn">Continue</button>
-  						</div>
-  				</form>
-  		</div>
+						<!-- Step three -->
+				<div class="form-step js-form-step waiting hidden" data-step="3">
 
-  					<!-- Step three -->
-  			<div class="form-step js-form-step waiting hidden" data-step="3">
+					<p class="form-instructions"><p class="form-instructions" ><strong>Please fill in your details and hit next</strong><br></p>
 
-  				<p class="form-instructions"><p class="form-instructions" ><strong>Please fill in your details and hit next</strong><br></p>
+					<form action="" name="form-step-3">
+							<div class="fieldgroup">
+									<input type="text" name="credit-card" id="credit-card" />
+									<label for="credit-card">Credit card number</label>
+							</div>
 
-  				<form action="" name="form-step-3">
-  						<div class="fieldgroup">
-  								<input type="text" name="credit-card" id="credit-card" />
-  								<label for="credit-card">Credit card number</label>
-  						</div>
+							<div class="fieldgroup">
+									<input type="text" name="credit-card-expiry" id="credit-card-expiry" />
+									<label for="credit-card-expiry">Credit card expiry</label>
+							</div>
 
-  						<div class="fieldgroup">
-  								<input type="text" name="credit-card-expiry" id="credit-card-expiry" />
-  								<label for="credit-card-expiry">Credit card expiry</label>
-  						</div>
+							<div class="buttons">
+									<button type="button" class="btn btn-alt js-reset">Reset</button>
+					  <div>&nbsp</div>
+									<button type="submit" class="btn">Continue</button>
+							</div>
+					</form>
 
-  						<div class="buttons">
-  								<button type="button" class="btn btn-alt js-reset">Reset</button>
-                  <div>&nbsp</div>
-  								<button type="submit" class="btn">Continue</button>
-  						</div>
-  				</form>
-
-  		</div>
+			</div>
 
 
 
-  		<!-- Step four -->
-  			<div class="form-step js-form-step waiting hidden" data-step="4">
+			<!-- Step four -->
+				<div class="form-step js-form-step waiting hidden" data-step="4">
 
-  				<p class="form-instructions"><p class="form-instructions" ><strong>Please fill in your details and hit next</strong><br></p>
+					<p class="form-instructions"><p class="form-instructions" ><strong>Please fill in your details and hit next</strong><br></p>
 
-  				<form action="" name="form-step-4">
-  						<div class="fieldgroup">
-  								<input type="text" name="agreen" id="agreen" />
-  								<label for="agreen">I agree</label>
-  						</div>
-  						<div class="buttons">
-                <div>&nbsp</div>
-                <div>&nbsp</div>
-  								<button type="button" class="btn btn-alt js-reset">Reset</button>
-  						</div>
-  				</form>
+					<form action="" name="form-step-4">
+							<div class="fieldgroup">
+									<input type="text" name="agreen" id="agreen" />
+									<label for="agreen">I agree</label>
+							</div>
+							<div class="buttons">
+					<div>&nbsp</div>
+					<div>&nbsp</div>
+									<button type="button" class="btn btn-alt js-reset">Reset</button>
+							</div>
+					</form>
 
-  		</div>
-  	</div>
+			</div>
+		</div>
+	
   </section>
+  </div>
 
 <script>
 var $body = $('body');
@@ -267,6 +270,20 @@ function setupFloatLabels() {
 
 	return false;
 }
+
+$('.steps').on('click', '.step--active', function() {
+  $(this).removeClass('step--incomplete').addClass('step--complete');
+  $(this).removeClass('step--active').addClass('step--inactive');
+  $(this).next().removeClass('step--inactive').addClass('step--active');
+});
+
+$('.steps').on('click', '.step--complete', function() {
+  $(this).removeClass('step--complete').addClass('step--incomplete');
+  $(this).removeClass('step--inactive').addClass('step--active');
+  $(this).nextAll().removeClass('step--complete').addClass('step--incomplete');
+  $(this).nextAll().removeClass('step--active').addClass('step--inactive');
+});
+
 
 /* Starts */
 function init() {
