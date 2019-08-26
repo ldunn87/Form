@@ -12,36 +12,37 @@
   <section class="section">
 
 		<div class="col1">
-		
+
 			<ul class="steps">
-			  <li class="step step--incomplete step--active">
+			  <li class="step step--incomplete step--active" data-step="1">
 				<span class="step__icon"></span>
 				<span class="step__label">Step 1</span>
 			  </li>
-			  <li class="step step--incomplete step--inactive">
+			  <li class="step step--incomplete step--inactive" data-step="2">
 				<span class="step__icon"></span>
 				<span class="step__label">Step 2</span>
 			  </li>
-			  <li class="step step--incomplete step--inactive">
+			  <li class="step step--incomplete step--inactive" data-step="3">
 				<span class="step__icon"></span>
 				<span class="step__label">Step 3</span>
 			  </li>
-			  <li class="step step--incomplete step--inactive">
+			  <li class="step step--incomplete step--inactive" data-step="4">
 				<span class="step__icon"></span>
 				<span class="step__label">Step 4</span>
 			  </li>
 			</ul>
 
 		</div>
-		
+
 		<div class="animation-container col2">
 			<h1>Wedding Register</h1>
 			<!-- Step one -->
-			<div class="form-step js-form-step" data-step="1">
+			<div class="form-step js-form-step step--active" data-step="1">
 
 				<p class="form-instructions" ><strong>Please fill in your details and hit next</strong><br></p>
 
 				<form action="" name="form-step-1">
+<!--action defines where to send form data -->
 					<div class="fieldgroup">
 						<input type="text" name="firstName" id="firstName" />
 						<label for="firstName">First name</label>
@@ -81,7 +82,7 @@
 							<div class="buttons">
 									<button type="button" class="btn btn-alt js-reset">Reset</button>
 					  <div>&nbsp</div>
-									<button type="submit" class="btn">Continue</button>
+									<button type="submit" class="btn step--complete">Continue</button>
 							</div>
 					</form>
 			</div>
@@ -132,7 +133,7 @@
 
 			</div>
 		</div>
-	
+
   </section>
   </div>
 
@@ -193,10 +194,7 @@ function showNextForm($currentForm) {
 
 	$body.addClass('freeze');
 
-	// Ensure top of form is in view
-	$('html, body').animate({
-		scrollTop : $progressBar.offset().top
-	}, 'fast');
+
 
 	// Hide current form fields
 	$currentForm.addClass('leaving');
@@ -216,8 +214,6 @@ function showNextForm($currentForm) {
 						 $nextForm.removeClass('coming waiting');
 					 });
 
-	// Increment value (based on 4 steps 0 - 100)
-	value += 33;
 
 	// Reset if we've reached the end
 	if (value >= 100) {
@@ -229,7 +225,7 @@ function showNextForm($currentForm) {
 			.addClass('active');
 
 		// Set progress bar to the next value
-		$progressBar.val(value);
+//		$progressBar.val(value);
 	}
 
 	// Update hidden progress descriptor (for a11y)
