@@ -177,6 +177,9 @@ function setupClickHandlers() {
 	// Reset form on reset button click
 	$('.js-reset').on('click', function() {
 		formReset();
+		$('.step[data-step="1"]').removeClass('step--complete').addClass('step--incomplete');
+		$('.step[data-step="1"]').nextAll().removeClass('step--complete').addClass('step--incomplete');
+		$('.step[data-step="1"]').nextAll().removeClass('step--active').addClass('step--inactive');
 	});
 
 	return false;
@@ -189,12 +192,18 @@ function showNextForm($currentForm) {
 	var currentFormStep = parseInt($currentForm.attr('data-step')) || false;
 	var $nextForm = $('.js-form-step[data-step="' + (currentFormStep + 1) + '"]');
 
-	console.log('Current step is ' + currentFormStep);
+	console.log('Current form step is ' + currentFormStep);
 	console.log('The next form is # ' + $nextForm.attr('data-step'));
 
+	var currentStep = $('.step[data-step="' + (currentFormStep) + '"]');
+	var nextStep	= $('.step[data-step="' + (currentFormStep + 1) + '"]');
+	
+	console.log(currentStep.attr('data-step'));
+	console.log(nextStep.attr('data-step'));
+	
 	$body.addClass('freeze');
 
-
+	
 
 	// Hide current form fields
 	$currentForm.addClass('leaving');
@@ -206,7 +215,10 @@ function showNextForm($currentForm) {
 	$animContainer.css({
 		'paddingBottom' : $nextForm.height() + 'px'
 	});
-
+	
+	
+	
+	
 	// Show next form fields
 	$nextForm.removeClass('hidden')
 					 .addClass('coming')
@@ -214,25 +226,12 @@ function showNextForm($currentForm) {
 						 $nextForm.removeClass('coming waiting');
 					 });
 
-
-	// Reset if we've reached the end
-	if (value >= 100) {
-		formReset();
-	} else {
-		$('.steps')
-			.find('.step.active')
-			.next('.step')
-			.addClass('active');
-
-		// Set progress bar to the next value
-//		$progressBar.val(value);
-	}
-
-	// Update hidden progress descriptor (for a11y)
-	$('.js-steps-completion').html($progressBar.val() + '% complete');
+	currentStep.removeClass('step--incomplete').addClass('step--complete');
+	currentStep.removeClass('step--active').addClass('step--inactive');
+	currentStep.next().removeClass('step--inactive').addClass('step--active');
 
 	$body.removeClass('freeze');
-
+	
 	return false;
 }
 
