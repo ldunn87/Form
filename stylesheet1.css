@@ -14,18 +14,35 @@ h1 {
   font-weight: normal;
   line-height: 2.2rem;
 }
-/* Form styles */
+
+/* left and right columns */
+.col2 {
+    display: flex;
+    order: 2;
+	flex-basis: 65%;
+  justify-content: center;
+}
+
+.col1 {
+    display: flex;
+    order: 1;
+	flex-basis: 35%;
+  height: 30rem;
+}
+
+/* Form Background and Style */
 .section {
     position: relative;
     display: flex;
-    width: 80%;
-    padding: 4rem;
+    width: 90%;
+    padding: 2rem;
     margin: 5vh auto 0 auto;
     background: white;
     box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
     flex-direction: row;
 }
-/*.section:before {
+/* This is to add a different color top square as background
+.section:before {
   content: "";
   width: 100%;
   background: #a7b9c7;
@@ -40,53 +57,138 @@ h1 {
   text-align: center;
 }
 form {
-  margin: 2rem auto;
+  margin: 1rem auto;
   width: 100%;
-  max-width: 330px;
   will-change: transform;
 }
-/* Input styles */
+/* Fields Spacing */
 .fieldgroup {
   margin: 1.5rem 0;
   position: relative;
+}
+
+/*Autocomplete Text Field Step1*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 300px;
+}
+
+input {
+  border: 0px solid transparent;
+  border-radius: 30px;
+  background-color: #f1f1f1;
+  padding: 16px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
 
 }
-label {
+
+.autocomplete-items {
   position: absolute;
-  top: 0.8rem;
+  border: 0px solid #d4d4d4;
+  border-radius: 30px;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
   left: 0;
-  display: block;
-  font-size: 1rem;
-  transition: 2s ease-out;
-  opacity: 0.5;
-  will-change: top, font-size;
+  right: 0;
+  box-sizing: border-box;
 }
-label:hover {
-  cursor: text;
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+  box-sizing: border-box;
 }
-input {
-  border: 1px solid #fff;
-  font-size: 1.2rem;
-  padding: 0.6rem;
-  padding-left: 0;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid #4b4d4f;
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: DodgerBlue;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+/*Text Input Fields Step3*/
+.inp {
+  margin: auto;
   width: 100%;
-  /*@TODO update width of form fields*/
-  max-width: 500px;
-  border-radius: 0;
+  max-width: 280px;
+  box-sizing: border-box;
 }
-input:focus {
+.inp .label {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  font-size: 16px;
+  color: #9098a9;
+  font-weight: 500;
+  transform-origin: 0 0;
+  transition: all 0.2s ease;
+}
+.border{
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: #07f;
+  transform: scaleX(0);
+  transform-origin: 0 0;
+  transition: all 0.15s ease;
+}
+.inp input {
+  -webkit-appearance: none;
+  width: 100%;
+  border: 0;
+  font-family: inherit;
+  padding-top: 12px;
+  padding-bottom: 2px;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid #c8ccd4;
+  background: none;
+  border-radius: 0;
+  color: #223254;
+  transition: all 0.15s ease;
+}
+.inp input:hover {
+  background: rgba(34,50,84,0.03);
+}
+.inp input:not(:placeholder-shown) + span {
+  color: #5a667f;
+  transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus {
+  background: none;
   outline: none;
 }
-input:valid {
-  border-color: #444;
+.inp input:focus + span {
+  color: #07f;
+  transform: translateY(-26px) scale(0.75);
 }
-input:focus + label, input.hasInput + label {
-  top: -0.8rem;
-  font-size: 0.7rem;
+.inp input:focus + span + .border {
+  transform: scaleX(1);
 }
+
 /* Buttons */
 .btn {
   color: #fff;
@@ -162,12 +264,7 @@ form .btn {
   display: block;
   margin: 0 auto;
 }
-/* Progress bar */
-.container {
-  margin-top: 40px;
-  padding-top: 20px;
-  /*background-color: #beb*/
-}
+
 /* Form animations */
 .animation-container {
   position: relative;
@@ -187,7 +284,7 @@ form .btn {
   animation: left-and-out 0.5s forwards;
 }
 .form-step.waiting {
-  transform: translateX(400px);
+  transform: translateX(500px);
 }
 .form-step.coming {
   animation: right-and-in 0.5s forwards;
@@ -196,7 +293,7 @@ form .btn {
 @keyframes left-and-out {
   100% {
     opacity: 0;
-    transform: translateX(-400px);
+    transform: translateX(-500px);
   }
 }
 @keyframes right-and-in {
@@ -283,7 +380,9 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #292627;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Avenir', sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 /* Component Styles - Steps */
 .steps {
@@ -390,19 +489,4 @@ body {
 .step--active .step__label {
   transition: color 0.3s ease-in-out;
   transition-delay: 0.5s;
-}
-
-
-.col2 {
-    display: flex;
-    order: 2;
-	flex-basis: 65%;
-  justify-content: center;
-}
-
-.col1 {
-    display: flex;
-    order: 1;
-	flex-basis: 35%;
-  height: 30rem;
 }
