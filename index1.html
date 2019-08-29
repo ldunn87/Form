@@ -16,19 +16,19 @@
 			<ul class="steps">
 			  <li class="step step--incomplete step--active" data-step="1">
 				<span class="step__icon"></span>
-				<span class="step__label">Step 1</span>
+				<span class="step__label">Your Details</span>
 			  </li>
 			  <li class="step step--incomplete step--inactive" data-step="2">
 				<span class="step__icon"></span>
-				<span class="step__label">Step 2</span>
+				<span class="step__label">Gift Amount</span>
 			  </li>
 			  <li class="step step--incomplete step--inactive" data-step="3">
 				<span class="step__icon"></span>
-				<span class="step__label">Step 3</span>
+				<span class="step__label">Card Details</span>
 			  </li>
 			  <li class="step step--incomplete step--inactive" data-step="4">
 				<span class="step__icon"></span>
-				<span class="step__label">Step 4</span>
+				<span class="step__label">Confirm</span>
 			  </li>
 			</ul>
 
@@ -197,13 +197,13 @@ function showNextForm($currentForm) {
 
 	var currentStep = $('.step[data-step="' + (currentFormStep) + '"]');
 	var nextStep	= $('.step[data-step="' + (currentFormStep + 1) + '"]');
-	
+
 	console.log(currentStep.attr('data-step'));
 	console.log(nextStep.attr('data-step'));
-	
+
 	$body.addClass('freeze');
 
-	
+
 
 	// Hide current form fields
 	$currentForm.addClass('leaving');
@@ -215,10 +215,10 @@ function showNextForm($currentForm) {
 	$animContainer.css({
 		'paddingBottom' : $nextForm.height() + 'px'
 	});
-	
-	
-	
-	
+
+
+
+
 	// Show next form fields
 	$nextForm.removeClass('hidden')
 					 .addClass('coming')
@@ -231,7 +231,7 @@ function showNextForm($currentForm) {
 	currentStep.next().removeClass('step--inactive').addClass('step--active');
 
 	$body.removeClass('freeze');
-	
+
 	return false;
 }
 
@@ -265,19 +265,6 @@ function setupFloatLabels() {
 
 	return false;
 }
-
-$('.steps').on('click', '.step--active', function() {
-  $(this).removeClass('step--incomplete').addClass('step--complete');
-  $(this).removeClass('step--active').addClass('step--inactive');
-  $(this).next().removeClass('step--inactive').addClass('step--active');
-});
-
-$('.steps').on('click', '.step--complete', function() {
-  $(this).removeClass('step--complete').addClass('step--incomplete');
-  $(this).removeClass('step--inactive').addClass('step--active');
-  $(this).nextAll().removeClass('step--complete').addClass('step--incomplete');
-  $(this).nextAll().removeClass('step--active').addClass('step--inactive');
-});
 
 
 /* Starts */

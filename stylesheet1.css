@@ -1,4 +1,4 @@
-@import "color-schemer";
+
 body {
   background: #6d7f8c;
   line-height: 1.45rem;
@@ -16,7 +16,7 @@ h1 {
 }
 /* Form styles */
 .section {
-    /* position: relative; */
+    position: relative;
     display: flex;
     width: 80%;
     padding: 4rem;
@@ -25,7 +25,7 @@ h1 {
     box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
     flex-direction: row;
 }
-.section:before {
+/*.section:before {
   content: "";
   width: 100%;
   background: #a7b9c7;
@@ -35,7 +35,7 @@ h1 {
   left: 0;
   z-index: -1;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
-}
+}*/
 .form-instructions {
   text-align: center;
 }
@@ -49,6 +49,7 @@ form {
 .fieldgroup {
   margin: 1.5rem 0;
   position: relative;
+
 }
 label {
   position: absolute;
@@ -71,8 +72,9 @@ input {
   background: transparent;
   border: none;
   border-bottom: 2px solid #4b4d4f;
-  width: calc(100% - .6rem);
-  max-width: 350px;
+  width: 100%;
+  /*@TODO update width of form fields*/
+  max-width: 500px;
   border-radius: 0;
 }
 input:focus {
@@ -203,21 +205,7 @@ form .btn {
     transform: translateX(0);
   }
 }
-/* Animations */
-@keyframes bounce {
-  0% {
-    transform: scale(1);
-  }
-  33% {
-    transform: scale(0.9);
-  }
-  66% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+
 /* Helpers */
 .sr-only {
   position: absolute;
@@ -266,10 +254,9 @@ form .btn {
   background: #4caf50;
   cursor: pointer;
 }
-/* Mixins */
-/* Color Variables */
-/* Theme Variables */
-/* Animations */
+
+/*progressBar*/
+
 @keyframes bounce {
   0% {
     transform: scale(1);
@@ -324,11 +311,10 @@ body {
 .step:not(:last-child):before, .step:not(:last-child):after {
   display: block;
   position: absolute;
-  top: 100%;
+  top: 50%;
   left: 49.9%;
   width: 0.25rem;
   content: '';
-  transform: translateY(-50%);
   will-change: height;
 }
 .step:before {
@@ -342,8 +328,15 @@ body {
 .step--complete:after {
   height: 100% !important;
   opacity: 1;
-  transition: width 0.6s ease-in-out, opacity 0.6s ease-in-out;
+  animation-name: transitionBar;
+  animation-duration: 2s;
 }
+
+@keyframes transitionBar {
+  0% {height: 0%}
+  100% {height: 100%}
+}
+
 .step__icon {
   display: flex;
   align-items: center;
@@ -380,8 +373,9 @@ body {
 
 .step__label {
     position: absolute;
+    padding-left: 3rem;
     left: 100%;
-    width: 50%;
+    width: 70%;
     font-size: 0.8rem;
     text-transform: uppercase;
     transform: translateX(-50%);
@@ -402,11 +396,13 @@ body {
 .col2 {
     display: flex;
     order: 2;
-	flex-basis: 70%;
+	flex-basis: 65%;
+  justify-content: center;
 }
 
 .col1 {
     display: flex;
     order: 1;
-	flex-basis: 30%;
+	flex-basis: 35%;
+  height: 30rem;
 }
