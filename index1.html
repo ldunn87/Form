@@ -37,26 +37,27 @@
 
 		<div class="col2 animation-container ">
 			<h1>Wedding Register</h1>
+      <!-- Step zero -->
+      <div class="form-step js-form-step step--active" data-step="0">
+    </div>
 			<!-- Step one -->
 			<div class="form-step js-form-step step--active" data-step="1">
-
 				<p class="form-instructions" ><strong>Let's find your invitation</strong><br></p>
-
+				<div class="fieldgroup1">
 				<form action="" name="form-step-1">
             <form autocomplete="off" action="/action_page.php">
               <div class="autocomplete" >
                 <input id="myInput" type="text" name="myInvitation" placeholder="&#x26A1; Type your invitation to search">
               </div>
             </form>
+          </div>
+
             </label>
-
-
-					<div class="buttons">
-								<button type="button" class="btn btn-alt js-reset">Reset</button>
-					<div>&nbsp</div>
-							<button type="submit" class="btn">Continue</button>
-					</div>
 				</form>
+        <div class="buttons">
+            <button type="button" class="btn btn-alt js-reset">Reset</button>
+            <button type="submit" class="btn">Continue</button>
+        </div>
 			</div>
 				<!-- Step two -->
 				<div class="form-step js-form-step waiting hidden" data-step="2">
@@ -64,15 +65,14 @@
 					<p class="form-instructions"><p class="form-instructions" ><strong>Please select wich party</strong><br></p>
 
 					<form action="" name="form-step-2">
-							<div class="fieldgroup">
-				</div>
+							<div class="fieldgroup1">
 
-							<div class="buttons">
-									<button type="button" class="btn btn-alt js-reset">Reset</button>
-					  <div>&nbsp</div>
-									<button type="submit" class="btn step--complete">Continue</button>
-							</div>
+				</div>
 					</form>
+          <div class="buttons">
+              <button type="button" class="btn btn-alt js-reset">Reset</button>
+              <button type="submit" class="btn">Continue</button>
+          </div>
 			</div>
 
 						<!-- Step three -->
@@ -105,16 +105,12 @@
                 <span class="border"></span>
               </label>
             </div>
-            <div class="buttons">
-                  <button type="button" class="btn btn-alt js-reset">Reset</button>
-            <div>&nbsp</div>
-                <button type="submit" class="btn">Continue</button>
-            </div>
 					</form>
-
+          <div class="buttons">
+              <button type="button" class="btn btn-alt js-reset">Reset</button>
+              <button type="submit" class="btn">Continue</button>
+          </div>
 			</div>
-
-
 
 			<!-- Step four -->
 				<div class="form-step js-form-step waiting hidden" data-step="4">
@@ -125,13 +121,10 @@
 							<div>
                 <!-- image placeholder-->
 							</div>
-							<div class="buttons">
-					<div>&nbsp</div>
-					<div>&nbsp</div>
-									<button type="button" class="btn btn-alt js-reset">All done!</button>
-							</div>
 					</form>
-
+          <div class="buttons">
+          <button type="button" class="btn btn-alt js-reset">All done!</button>
+          </div>
 			</div>
 		</div>
 
@@ -390,7 +383,7 @@ function autocomplete(inp, arr) {
 }
 
 /*An array containing all the country names in the world:*/
-var invitations = ["sack01","sack02","sack03","sack04"];
+var invitations = ["sack01","sack02","sack03","sack04","sack05"];
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the array as possible autocomplete values:*/
 autocomplete(document.getElementById("myInput"), invitations);
