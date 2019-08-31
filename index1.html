@@ -2,293 +2,458 @@
 <html>
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="stylesheet1.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="stylesheet1.css">
 </head>
 
 <body>
-  <section class="section">
-  	<h1>Wedding Register</h1>
+    <section class="section">
+		
+		<div class="landing-screen">
+			<h1 class="landing">Couple & Couplet Wedding Registry</h1>
+			<p class="start">Click to Start</p>
+		</div>
 
-    <ul class="steps">
-     <progress class="steps-bar" min="0" max="100" value="0" step="33" aria-labelledby="steps-completion"></progress>
-  		<li class="step stepIncomplete stepActive">
-        <span class="stepIcon"></span>
-        <span class="stepLabel">1</span>
-      </li>
-  		<li class="step stepIncomplete stepInactive">
-        <span class="stepIcon"></span>
-        <span class="stepLabel">2</span>
-        </li>
-  		<li class="step stepIncomplete stepInactive">
-        <span class="stepIcon"></span>
-        <span class="stepLabel">3</span>
-        </li>
-  		<li class="step stepIncomplete stepInactive">
-        <span class="stepIcon"></span>
-        <span class="stepLabel">4</span>
-        </li>
+        <div class="col1">
+            <h2 class="col1Header">Wedding App Name</h2>
+            <ul class="steps">
+                <li class="step step--incomplete step--active" data-step="1">
+                    <span class="step__icon"></span>
+                    <span class="step__label">Your Details</span>
+                </li>
+                <li class="step step--incomplete step--inactive" data-step="2">
+                    <span class="step__icon"></span>
+                    <span class="step__label">Gift Amount</span>
+                </li>
+                <li class="step step--incomplete step--inactive" data-step="3">
+                    <span class="step__icon"></span>
+                    <span class="step__label">Card Details</span>
+                </li>
+                <li class="step step--incomplete step--inactive" data-step="4">
+                    <span class="step__icon"></span>
+                    <span class="step__label">Confirm</span>
+                </li>
+            </ul>
 
-  		<p id="steps-completion" class="js-steps-completion sr-only" aria-live="polite">0% complete</p>
-  	</ul>
+        </div>
 
-  	<div class="animation-container">
-  		<!-- Step one -->
-  		<div class="form-step js-form-step" data-step="1">
+        <div class="col2 animation-container ">
+            <h1>Couple & Couplet Wedding Registry</h1>
+            <!-- Step zero -->
+            
+			<div class="formContainer">
+				<!-- Step one -->
+				<div class="form-step js-form-step step--active" data-step="1">
+					<p class="form-instructions"><strong>Let's find your invitation</strong>
+						<br>
+					</p>
+					<div class="fieldgroup1">
+						<form action="" name="form-step-1">
+							<form autocomplete="off" action="/action_page.php">
+								<div class="autocomplete">
+									<input id="myInput" type="text" name="myInvitation" placeholder="&#x26A1; Type your invitation to search">
+								</div>
+							</form>
+					</div>
 
-  			<p class="form-instructions" ><strong>Please fill in your details and hit next</strong><br></p>
+					</form>
+					<div class="buttons">
+						<button type="button" class="btn btn-alt js-reset">Reset</button>
+						<button type="submit" class="btn">Continue</button>
+					</div>
+				</div>
+				<!-- Step two -->
+				<div class="form-step js-form-step waiting hidden" data-step="2">
 
-  			<form action="" name="form-step-1">
-  				<div class="fieldgroup">
-  					<input type="text" name="firstName" id="firstName" />
-  					<label for="firstName">First name</label>
-  				</div>
+						<p class="form-instructions"><strong>Hi {Name}, who are you giving a gift to today?</strong>
 
-  				<div class="fieldgroup">
-  					<input type="text" name="lastName" id="lastName" />
-  					<label for="lastName">Last name</label>
-  				</div>
+						<form action="" name="form-step-2">
+							<div class="fieldgroup1">
+							<div class="container vertical-divider">
+								  <div class="column one-third">
+									<h3>Bride</h3>
+									<img src="avatar.png" class="avatar-select"/>
+								  </div>
+								  <div class="column one-third">
+									<h3>Groom</h3>
+									<img src="avatar.png" class="avatar-select"/>
+								  </div>
+								  <div class="column one-third">
+									<h3>Both</h3>
+									<img src="avatar.png" class="avatar-select"/>
+								  </div>
+								</div>
 
-  				<div class="fieldgroup">
-  					<input type="text" name="email" id="email" />
-  					<label for="email">Email</label>
-  				</div>
+							</div>
+						</form>
+						<div class="buttons">
+							<button type="button" class="btn btn-alt js-reset">Reset</button>
+							<button type="submit" class="btn">Continue</button>
+						</div>
+				</div>
 
-  				<div class="buttons">
-  							<button type="button" class="btn btn-alt js-reset">Reset</button>
-                <div>&nbsp</div>
-  						<button type="submit" class="btn">Continue</button>
-  				</div>
-  			</form>
-  		</div>
-  			<!-- Step two -->
-  			<div class="form-step js-form-step waiting hidden" data-step="2">
+				<!-- Step three -->
+				<div class="form-step js-form-step waiting hidden" data-step="3">
 
-  				<p class="form-instructions"><p class="form-instructions" ><strong>Please select an amount</strong><br></p>
+					<p class="form-instructions">
+						<p class="form-instructions"><strong>Hi {Name}, what type of gift are you giving {Party} today?</strong>
+							<br>
+						</p>
+						
+						<form action="" name="form-step-3">
+							<div class="fieldgroup1">
+							<div class="container vertical-divider">
+								  <div class="column one-third">
+									<h3>Money</h3>
+									<img src="avatar.png" class="avatar-select"/>
+								  </div>
+								  <div class="column one-third">
+									<h3>Jewlery / Other</h3>
+									<img src="avatar.png" class="avatar-select"/>
+								  </div>
+								  <div class="column one-third">
+									<h3>Both</h3>
+									<img src="avatar.png" class="avatar-select"/>
+								  </div>
+								</div>
 
-  				<form action="" name="form-step-2">
-  						<div class="fieldgroup">
-  								<input type="number" name="Type in an amount" id="amount" />
-                <p>$ <span id="money"></span></p>
-                <div class="slidecontainer">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                </div>
-            </div>
+							</div>
+						</form>
+				</div>
+				
+				<!-- Step three.1 -->
+				<div class="form-step js-form-step waiting hidden" data-step="3.1">
 
-  						<div class="buttons">
-  								<button type="button" class="btn btn-alt js-reset">Reset</button>
-                  <div>&nbsp</div>
-  								<button type="submit" class="btn">Continue</button>
-  						</div>
-  				</form>
-  		</div>
+					<p class="form-instructions">
+						<p class="form-instructions"><strong>Please fill in the details for your gift</strong>
+							<br>
+						</p>
+						
+						<form action="" name="form-step-3">
+						
+							<!--action defines where to send form data -->
+							<div class="fieldgroup">
+								<label for="inp" class="inp">
+									<input type="text" placeholder="&nbsp;">
+									<span class="label">First Name</span>
+									<span class="border"></span>
+								</label>
+							</div>
 
-  					<!-- Step three -->
-  			<div class="form-step js-form-step waiting hidden" data-step="3">
+							<div class="fieldgroup">
+								<label for="inp" class="inp">
+									<input type="text" id="inp" placeholder="&nbsp;">
+									<span class="label">Last Name</span>
+									<span class="border"></span>
+								</label>
+							</div>
 
-  				<p class="form-instructions"><p class="form-instructions" ><strong>Please fill in your details and hit next</strong><br></p>
+							<div class="fieldgroup">
+								<label for="inp" class="inp">
+									<input type="text" id="inp" placeholder="&nbsp;">
+									<span class="label">Email</span>
+									<span class="border"></span>
+								</label>
+							</div>
+						</form>
+						<div class="buttons">
+							<button type="button" class="btn btn-alt js-reset">Reset</button>
+							<button type="submit" class="btn">Continue</button>
+						</div>
+				</div>
+				
 
-  				<form action="" name="form-step-3">
-  						<div class="fieldgroup">
-  								<input type="text" name="credit-card" id="credit-card" />
-  								<label for="credit-card">Credit card number</label>
-  						</div>
+				<!-- Step four -->
+				<div class="form-step js-form-step waiting hidden" data-step="4">
 
-  						<div class="fieldgroup">
-  								<input type="text" name="credit-card-expiry" id="credit-card-expiry" />
-  								<label for="credit-card-expiry">Credit card expiry</label>
-  						</div>
+					<p class="form-instructions">
+						<p class="form-instructions"><strong>Please confirm your submission</strong>
+							<br>
+						</p>
 
-  						<div class="buttons">
-  								<button type="button" class="btn btn-alt js-reset">Reset</button>
-                  <div>&nbsp</div>
-  								<button type="submit" class="btn">Continue</button>
-  						</div>
-  				</form>
+						<form action="" name="form-step-4">
+							<div>
+								<!-- image placeholder-->
+							</div>
+						</form>
+						<div class="buttons">
+							<button type="button" class="btn btn-alt js-reset">All done!</button>
+						</div>
+				</div>
+			</div>
+        </div>
 
-  		</div>
+    </section>
+    </div>
 
+    <script>
+        var $body = $('body');
+        var $progressBar = $('progress');
+        var $animContainer = $('.animation-container');
+        var value = 0;
+        var transitionEnd = 'webkitTransitionEnd transitionend';
 
+        // Resets the form back to the default state.
 
-  		<!-- Step four -->
-  			<div class="form-step js-form-step waiting hidden" data-step="4">
+        function formReset() {
+            value = 0;
+            $progressBar.val(value);
+            $('form input').not('button').val('').removeClass('hasInput');
+            $('.js-form-step').removeClass('left leaving');
+            $('.js-form-step').not('.js-form-step[data-step="1"]').addClass('hidden waiting');
+            $('.js-form-step[data-step="1"]').removeClass('hidden');
+            $('.step').not('.one').removeClass('active');
 
-  				<p class="form-instructions"><p class="form-instructions" ><strong>Please fill in your details and hit next</strong><br></p>
+            $animContainer.css({
+                'paddingBottom': $('.js-form-step[data-step="1"]').height() + 'px'
+            });
 
-  				<form action="" name="form-step-4">
-  						<div class="fieldgroup">
-  								<input type="text" name="agreen" id="agreen" />
-  								<label for="agreen">I agree</label>
-  						</div>
-  						<div class="buttons">
-                <div>&nbsp</div>
-                <div>&nbsp</div>
-  								<button type="button" class="btn btn-alt js-reset">Reset</button>
-  						</div>
-  				</form>
+            console.warn('Form reset.');
+            return false;
+        }
 
-  		</div>
-  	</div>
-  </section>
+        // Sets up the click handlers on the form. Next/reset.
 
-<script>
-var $body = $('body');
-var $progressBar = $('progress');
-var $animContainer = $('.animation-container');
-var value = 0;
-var transitionEnd = 'webkitTransitionEnd transitionend';
+        function setupClickHandlers() {
 
-// Resets the form back to the default state.
+            // Show next form on continue click
+            $('button[type="submit"]').on('click', function(event) {
+                event.preventDefault();
+                var $currentForm = $(this).parents('.js-form-step');
+                showNextForm($currentForm);
+            });
 
-function formReset() {
-	value = 0;
-	$progressBar.val(value);
-	$('form input').not('button').val('').removeClass('hasInput');
-	$('.js-form-step').removeClass('left leaving');
-	$('.js-form-step').not('.js-form-step[data-step="1"]').addClass('hidden waiting');
-	$('.js-form-step[data-step="1"]').removeClass('hidden');
-	$('.step').not('.one').removeClass('active');
+            // Reset form on reset button click
+            $('.js-reset').on('click', function() {
+                formReset();
+                $('.step[data-step="1"]').removeClass('step--complete').addClass('step--incomplete');
+                $('.step[data-step="1"]').nextAll().removeClass('step--complete').addClass('step--incomplete');
+                $('.step[data-step="1"]').nextAll().removeClass('step--active').addClass('step--inactive');
+            });
 
-	$animContainer.css({
-		'paddingBottom': $('.js-form-step[data-step="1"]').height() + 'px'
-	});
+            return false;
+        }
 
-	console.warn('Form reset.');
-	return false;
-}
+        // Shows the next form.
+        // @param - Node - The current form.
 
-// Sets up the click handlers on the form. Next/reset.
+        function showNextForm($currentForm) {
+            var currentFormStep = parseInt($currentForm.attr('data-step')) || false;
+            var $nextForm = $('.js-form-step[data-step="' + (currentFormStep + 1) + '"]');
 
-function setupClickHandlers() {
+            console.log('Current form step is ' + currentFormStep);
+            console.log('The next form is # ' + $nextForm.attr('data-step'));
 
-	// Show next form on continue click
-	$('button[type="submit"]').on('click', function(event) {
-			event.preventDefault();
-			var $currentForm = $(this).parents('.js-form-step');
-			showNextForm($currentForm);
-	});
+            var currentStep = $('.step[data-step="' + (currentFormStep) + '"]');
+            var nextStep = $('.step[data-step="' + (currentFormStep + 1) + '"]');
 
-	// Reset form on reset button click
-	$('.js-reset').on('click', function() {
-		formReset();
-	});
+            console.log(currentStep.attr('data-step'));
+            console.log(nextStep.attr('data-step'));
 
-	return false;
-}
+            $body.addClass('freeze');
 
-// Shows the next form.
-// @param - Node - The current form.
+            // Hide current form fields
+            $currentForm.addClass('leaving');
+            setTimeout(function() {
+                $currentForm.addClass('hidden');
+            }, 500);
 
-function showNextForm($currentForm) {
-	var currentFormStep = parseInt($currentForm.attr('data-step')) || false;
-	var $nextForm = $('.js-form-step[data-step="' + (currentFormStep + 1) + '"]');
+            // Animate container to height of form
+            $animContainer.css({
+                'paddingBottom': $nextForm.height() + 'px'
+            });
 
-	console.log('Current step is ' + currentFormStep);
-	console.log('The next form is # ' + $nextForm.attr('data-step'));
+            // Show next form fields
+            $nextForm.removeClass('hidden')
+                .addClass('coming')
+                .one(transitionEnd, function() {
+                    $nextForm.removeClass('coming waiting');
+                });
 
-	$body.addClass('freeze');
+            currentStep.removeClass('step--incomplete').addClass('step--complete');
+            currentStep.removeClass('step--active').addClass('step--inactive');
+            currentStep.next().removeClass('step--inactive').addClass('step--active');
 
-	// Ensure top of form is in view
-	$('html, body').animate({
-		scrollTop : $progressBar.offset().top
-	}, 'fast');
+            $body.removeClass('freeze');
 
-	// Hide current form fields
-	$currentForm.addClass('leaving');
-	setTimeout(function() {
-		$currentForm.addClass('hidden');
-	}, 500);
+            return false;
+        }
 
-	// Animate container to height of form
-	$animContainer.css({
-		'paddingBottom' : $nextForm.height() + 'px'
-	});
+        // Sets up and handles the float labels on the inputs.
+        function setupFloatLabels() {
+            // Check the inputs to see if we should keep the label floating or not
+            $('form input').not('button').on('blur', function() {
 
-	// Show next form fields
-	$nextForm.removeClass('hidden')
-					 .addClass('coming')
-					 .one(transitionEnd, function() {
-						 $nextForm.removeClass('coming waiting');
-					 });
+                // Different validation for different inputs
+                switch (this.tagName) {
+                    case 'SELECT':
+                        if (this.value > 0) {
+                            this.className = 'hasInput';
+                        } else {
+                            this.className = '';
+                        }
+                        break;
 
-	// Increment value (based on 4 steps 0 - 100)
-	value += 33;
+                    case 'INPUT':
+                        if (this.value !== '') {
+                            this.className = 'hasInput';
+                        } else {
+                            this.className = '';
+                        }
+                        break;
 
-	// Reset if we've reached the end
-	if (value >= 100) {
-		formReset();
-	} else {
-		$('.steps')
-			.find('.step.active')
-			.next('.step')
-			.addClass('active');
+                    default:
+                        break;
+                }
+            });
 
-		// Set progress bar to the next value
-		$progressBar.val(value);
-	}
+            return false;
+        }
+		
+		$('.start').click(function() {
+			$('.landing-screen').hide();	
+			$('.col1').show();
+			$('.col2').show();
+		});
 
-	// Update hidden progress descriptor (for a11y)
-	$('.js-steps-completion').html($progressBar.val() + '% complete');
+        /* Starts */
+        function init() {
+            formReset();
+            setupFloatLabels();
+            setupClickHandlers();
+			$('.col1').hide();
+			$('.col2').hide();
+        }
 
-	$body.removeClass('freeze');
+        init();
+    </script>
 
-	return false;
-}
+    <!--here we are adding script for the value to display for range slider-->
+    <script>
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("money");
+        output.innerHTML = slider.value; // Display the default slider value
 
-// Sets up and handles the float labels on the inputs.
-function setupFloatLabels() {
-	// Check the inputs to see if we should keep the label floating or not
-	$('form input').not('button').on('blur', function() {
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        }
+    </script>
 
-		// Different validation for different inputs
-		switch (this.tagName) {
-			case 'SELECT':
-				if (this.value > 0) {
-					this.className = 'hasInput';
-				} else {
-					this.className = '';
-				}
-				break;
+    <!--autocomplete box-->
+    <script>
+        function autocomplete(inp, arr) {
+            /*the autocomplete function takes two arguments,
+            the text field element and an array of possible autocompleted values:*/
+            var currentFocus;
+            /*execute a function when someone writes in the text field:*/
+            inp.addEventListener("input", function(e) {
+                var a, b, i, val = this.value;
+                /*close any already open lists of autocompleted values*/
+                closeAllLists();
+                if (!val) {
+                    return false;
+                }
+                currentFocus = -1;
+                /*create a DIV element that will contain the items (values):*/
+                a = document.createElement("DIV");
+                a.setAttribute("id", this.id + "autocomplete-list");
+                a.setAttribute("class", "autocomplete-items");
+                /*append the DIV element as a child of the autocomplete container:*/
+                this.parentNode.appendChild(a);
+                /*for each item in the array...*/
+                for (i = 0; i < arr.length; i++) {
+                    /*check if the item starts with the same letters as the text field value:*/
+                    if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                        /*create a DIV element for each matching element:*/
+                        b = document.createElement("DIV");
+                        /*make the matching letters bold:*/
+                        b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                        b.innerHTML += arr[i].substr(val.length);
+                        /*insert a input field that will hold the current array item's value:*/
+                        b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                        /*execute a function when someone clicks on the item value (DIV element):*/
+                        b.addEventListener("click", function(e) {
+                            /*insert the value for the autocomplete text field:*/
+                            inp.value = this.getElementsByTagName("input")[0].value;
+                            /*close the list of autocompleted values,
+                            (or any other open lists of autocompleted values:*/
+                            closeAllLists();
+                        });
+                        a.appendChild(b);
+                    }
+                }
+            });
+            /*execute a function presses a key on the keyboard:*/
+            inp.addEventListener("keydown", function(e) {
+                var x = document.getElementById(this.id + "autocomplete-list");
+                if (x) x = x.getElementsByTagName("div");
+                if (e.keyCode == 40) {
+                    /*If the arrow DOWN key is pressed,
+                    increase the currentFocus variable:*/
+                    currentFocus++;
+                    /*and and make the current item more visible:*/
+                    addActive(x);
+                } else if (e.keyCode == 38) { //up
+                    /*If the arrow UP key is pressed,
+                    decrease the currentFocus variable:*/
+                    currentFocus--;
+                    /*and and make the current item more visible:*/
+                    addActive(x);
+                } else if (e.keyCode == 13) {
+                    /*If the ENTER key is pressed, prevent the form from being submitted,*/
+                    e.preventDefault();
+                    if (currentFocus > -1) {
+                        /*and simulate a click on the "active" item:*/
+                        if (x) x[currentFocus].click();
+                    }
+                }
+            });
 
-			case 'INPUT':
-				if (this.value !== '') {
-					this.className = 'hasInput';
-				} else {
-					this.className = '';
-				}
-				break;
+            function addActive(x) {
+                /*a function to classify an item as "active":*/
+                if (!x) return false;
+                /*start by removing the "active" class on all items:*/
+                removeActive(x);
+                if (currentFocus >= x.length) currentFocus = 0;
+                if (currentFocus < 0) currentFocus = (x.length - 1);
+                /*add class "autocomplete-active":*/
+                x[currentFocus].classList.add("autocomplete-active");
+            }
 
-			default:
-				break;
-		}
-	});
+            function removeActive(x) {
+                /*a function to remove the "active" class from all autocomplete items:*/
+                for (var i = 0; i < x.length; i++) {
+                    x[i].classList.remove("autocomplete-active");
+                }
+            }
 
-	return false;
-}
+            function closeAllLists(elmnt) {
+                /*close all autocomplete lists in the document,
+                except the one passed as an argument:*/
+                var x = document.getElementsByClassName("autocomplete-items");
+                for (var i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != inp) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+            /*execute a function when someone clicks in the document:*/
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+        }
 
-/* Starts */
-function init() {
-	formReset();
-	setupFloatLabels();
-	setupClickHandlers();
-}
+        /*An array containing all the country names in the world:*/
+        var invitations = ["sack01", "sack02", "sack03", "sack04", "sack05"];
 
-init();
-</script>
-
-<!--here we are adding script for the value to display for range slider-->
-<script>
-var slider = document.getElementById("myRange");
-var output = document.getElementById("money");
-output.innerHTML = slider.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
-</script>
+        /*initiate the autocomplete function on the "myInput" element, and pass along the array as possible autocomplete values:*/
+        autocomplete(document.getElementById("myInput"), invitations);
+    </script>
 
 </body>
 
