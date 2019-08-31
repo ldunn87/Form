@@ -2,7 +2,7 @@
 body {
   background: #6d7f8c;
   line-height: 1.45rem;
-  color: #444;
+  color: #e6e7e8;
 }
 body.freeze {
   pointer-events: none;
@@ -19,28 +19,37 @@ h1 {
 .col2 {
     display: flex;
     order: 2;
-	flex-basis: 65%;
-  justify-content: center;
+    flex-basis: 65%;
+    justify-content: start;
+    background-color: white;
+    border-radius: 0px 10px 10px 0px;
+    padding-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+	color: #0000007a;
 }
 
 .col1 {
     display: flex;
+    flex-direction: column;
     order: 1;
-	flex-basis: 35%;
-  height: 30rem;
+    box-shadow: inset 0 0 0 2000px #2f3a5069;
+    flex-basis: 35%;
+    border-radius: 10px 0px 0px 10px;
+    background-image: url(bg.jpg);
+    background-size: cover;
 }
 
 /* Form Background and Style */
 .section {
     position: relative;
     display: flex;
-    width: 90%;
-    padding: 2rem;
-    margin: 5vh auto 0 auto;
+    width: 95%;
+    margin: 0 auto;
     border-radius: 10px;
-    background: white;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, .3);
     flex-direction: row;
+    min-height: 80%;
 }
 /* This is to add a different color top square as background
 .section:before {
@@ -280,7 +289,6 @@ form .btn {
 .animation-container {
   position: relative;
   width: 100%;
-  height: 100%;
   transition: 0.1s;
   will-change: padding;
   overflow: hidden;
@@ -291,6 +299,7 @@ form .btn {
   transition-timing-function: ease-in-out;
   will-change: transform, opacity;
   margin-top:50px;
+  width: 85%;
 }
 .form-step.leaving {
   animation: left-and-out 0.5s forwards;
@@ -388,13 +397,13 @@ html, body {
   height: 100%;
 }
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #292627;
-  font-family: 'Avenir', sans-serif;
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6d7f8c;
+    font-family: 'Avenir', sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
 }
 /* Component Styles - Steps */
 .steps {
@@ -404,7 +413,7 @@ body {
   padding: 0 0 2rem 0;
   list-style: none;
   flex-direction: column;
-  height: 100%;
+  height: 60%;
 }
 .step {
   display: flex;
@@ -420,13 +429,12 @@ body {
   pointer-events: all;
 }
 .step:not(:last-child):before, .step:not(:last-child):after {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 49.9%;
-  width: 0.25rem;
-  content: '';
-  will-change: height;
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 0.15rem;
+    content: '';
+    will-change: height;
 }
 .step:before {
   height: 100%;
@@ -449,21 +457,21 @@ body {
 }
 
 .step__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 3rem;
-  height: 3rem;
-  background-color: #292627;
-  border: 0.25rem solid #e6e7e8;
-  border-radius: 50%;
-  color: transparent;
-  font-size: 2rem;
-  z-index: 1;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: #292627;
+    border: 2px solid #e6e7e8;
+    border-radius: 50%;
+    color: transparent;
+    font-size: 2rem;
+    z-index: 1;
 }
 .step__icon:before {
-  display: block;
+  display: none;
   color: #fff;
   content: '\2713';
 }
@@ -490,15 +498,73 @@ body {
     font-size: 0.8rem;
     text-transform: uppercase;
     transform: translateX(-50%);
+	letter-spacing: 1.2px;
 }
 
 .step--incomplete.step--inactive .step__label {
-  color: #e6e7e8;
+  color: #d3d3d3b3;
 }
 .step--incomplete.step--active .step__label {
-  color: #4b4d4f;
+  color: #f1f1f1;
 }
 .step--active .step__label {
   transition: color 0.3s ease-in-out;
   transition-delay: 0.5s;
+}
+
+.col1Header{
+	margin: 2rem auto;
+	color: #ffffffd1;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vertical-divider{
+	clear: both;
+	position: relative;
+}
+
+.vertical-divider:after {
+	clear: both;
+	content: " ";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.vertical-divider .column:not(:first-child):after, .vertical-divider .columns:not(:first-child):after{
+	background: #f1f1f1;
+	bottom: 0;
+	content: " ";
+	margin-left: -10px;
+	position: absolute;
+	top: 10px;
+	bottom: 10px;
+	width: 1px;
+}
+
+/* Very simple grid for example */
+.container {    width: 100%;
+    padding: 10px;
+    border: 1px solid #f1f1f1ad;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px #ccd0d9;
+}
+
+.container .column, .container .columns {     
+	margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .one-third.column {     
+	flex-basis: 29%; 
 }
