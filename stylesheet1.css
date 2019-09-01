@@ -1,8 +1,10 @@
 
 body {
-  background: #6d7f8c;
-  line-height: 1.45rem;
-  color: #444;
+	background: #6d7f8c;
+	line-height: 1.45rem;
+	color: #e6e7e8;
+	font-family: 'NoirPro', sans-serif;
+    margin: 0
 }
 body.freeze {
   pointer-events: none;
@@ -11,7 +13,7 @@ h1 {
   margin: 0;
   margin-bottom: 2rem;
   text-align: center;
-  font-weight: normal;
+  font-weight: 300;
   line-height: 2.2rem;
 }
 
@@ -19,28 +21,39 @@ h1 {
 .col2 {
     display: flex;
     order: 2;
-	flex-basis: 65%;
-  justify-content: center;
+    flex-basis: 65%;
+    justify-content: start;
+    background-color: white;
+    border-radius: 0px 10px 10px 0px;
+    padding-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+	color: #0000007a;
 }
 
 .col1 {
-    display: flex;
+display: flex;
+    flex-direction: column;
     order: 1;
-	flex-basis: 35%;
-  height: 30rem;
+    flex-basis: 35%;
+    border-radius: 10px 0px 0px 10px;
+    background-image: url(bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-blend-mode: multiply;
+    background-color: #8c8266b0;
 }
 
 /* Form Background and Style */
 .section {
     position: relative;
     display: flex;
-    width: 90%;
-    padding: 2rem;
-    margin: 5vh auto 0 auto;
+    width: 95%;
+    margin: 0 auto;
     border-radius: 10px;
-    background: white;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, .3);
     flex-direction: row;
+    min-height: 90%;
 }
 /* This is to add a different color top square as background
 .section:before {
@@ -54,10 +67,14 @@ h1 {
   z-index: -1;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
 }*/
+
 .form-instructions {
-  text-align: center;
-  box-sizing: border-box;
-  min-width: 40vw;
+    text-align: left;
+    font-size: 2.5rem;
+    line-height: 1.25;
+    letter-spacing: 1.2px;
+	margin: 0;
+	font-weight: 700;
 }
 form {
   margin: 1rem auto;
@@ -71,68 +88,28 @@ form {
   box-sizing: border-box;
 }
 .fieldgroup1 {
-  margin: 3rem 0;
-  position: relative;
-  min-height: 200px;
-  box-sizing: border-box;
-}
-
-/*Autocomplete Text Field Step1*/
-.autocomplete {
-  position: relative;
-  box-sizing: border-box;
-  min-width: 300px;
+	margin: 3rem 0;
+	position: relative;
+	min-height: 200px;
+	box-sizing: border-box;
+	justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 input {
-  border: 0px solid transparent;
-  border-radius: 30px;
-  background-color: #f1f1f1;
-  padding: 16px;
-  font-size: 16px;
-  box-sizing: border-box;
+	border: 1px solid #00000005;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 1rem;
+    box-sizing: border-box;
 }
 
 input[type=text] {
-  background-color: #f1f1f1;
-  width: 100%;
+	background-color: #f1f1f1;
+	width: 100%;
+    font-family: inherit;
 
-}
-
-.autocomplete-items {
-  position: absolute;
-  border: 0px solid #d4d4d4;
-  border-radius: 30px;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
-  left: 0;
-  right: 0;
-  box-sizing: border-box;
-  height: 200px;
-}
-
-.autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-  background-color: #fff;
-  box-sizing: border-box;
-}
-
-/*when hovering an item:*/
-.autocomplete-items div:hover {
-  background-color: DodgerBlue;
-  color: #ffffff;
-  box-sizing: border-box;
-}
-
-/*when navigating through the items using the arrow keys:*/
-.autocomplete-active {
-  background-color: DodgerBlue !important;
-  color: #ffffff;
-  box-sizing: border-box;
 }
 
 /*Text Input Fields Step3*/
@@ -280,7 +257,6 @@ form .btn {
 .animation-container {
   position: relative;
   width: 100%;
-  height: 100%;
   transition: 0.1s;
   will-change: padding;
   overflow: hidden;
@@ -290,7 +266,7 @@ form .btn {
   transition: 0.1s ease-in-out;
   transition-timing-function: ease-in-out;
   will-change: transform, opacity;
-  margin-top:50px;
+  width: 85%;
 }
 .form-step.leaving {
   animation: left-and-out 0.5s forwards;
@@ -388,13 +364,12 @@ html, body {
   height: 100%;
 }
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #292627;
-  font-family: 'Avenir', sans-serif;
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6d7f8c;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
 }
 /* Component Styles - Steps */
 .steps {
@@ -404,7 +379,7 @@ body {
   padding: 0 0 2rem 0;
   list-style: none;
   flex-direction: column;
-  height: 100%;
+  height: 60%;
 }
 .step {
   display: flex;
@@ -420,13 +395,12 @@ body {
   pointer-events: all;
 }
 .step:not(:last-child):before, .step:not(:last-child):after {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 49.9%;
-  width: 0.25rem;
-  content: '';
-  will-change: height;
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 0.15rem;
+    content: '';
+    will-change: height;
 }
 .step:before {
   height: 100%;
@@ -449,21 +423,21 @@ body {
 }
 
 .step__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 3rem;
-  height: 3rem;
-  background-color: #292627;
-  border: 0.25rem solid #e6e7e8;
-  border-radius: 50%;
-  color: transparent;
-  font-size: 2rem;
-  z-index: 1;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: #292627;
+    border: 2px solid #e6e7e8;
+    border-radius: 50%;
+    color: transparent;
+    font-size: 2rem;
+    z-index: 1;
 }
 .step__icon:before {
-  display: block;
+  display: none;
   color: #fff;
   content: '\2713';
 }
@@ -484,21 +458,158 @@ body {
 
 .step__label {
     position: absolute;
-    padding-left: 3rem;
     left: 100%;
     width: 70%;
     font-size: 0.8rem;
     text-transform: uppercase;
     transform: translateX(-50%);
+	letter-spacing: 1.2px;
+    text-shadow: 0px 1px 2px #232323a6;
+    font-weight: 400;
 }
 
 .step--incomplete.step--inactive .step__label {
-  color: #e6e7e8;
+  color: #d3d3d3b3;
 }
 .step--incomplete.step--active .step__label {
-  color: #4b4d4f;
+  color: #f1f1f1;
 }
 .step--active .step__label {
   transition: color 0.3s ease-in-out;
   transition-delay: 0.5s;
+}
+
+.col1Header{
+	margin: 2rem auto;
+	color: #ffffffd1;
+	font-weight: 400;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vertical-divider{
+	clear: both;
+	position: relative;
+}
+
+.vertical-divider:after {
+	clear: both;
+	content: " ";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.vertical-divider .column:not(:first-child):after, .vertical-divider .columns:not(:first-child):after{
+	background: #f1f1f1;
+	bottom: 0;
+	content: " ";
+	margin-left: -10px;
+	position: absolute;
+	top: 15px;
+	bottom: 15px;
+	width: 1px;
+}
+
+/* Very simple grid for example */
+.container {    
+	width: 100%;
+    padding: 10px;
+    border: 1px solid #f1f1f1ad;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px #ccd0d9;
+}
+
+.container .column, .container .columns {     
+	margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+	padding-bottom: 20px;
+}
+
+.container .one-third.column {     
+	flex-basis: 30%; 
+}
+
+img.avatar-select {
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto;
+    border: 1px solid #9098a9d1;
+    border-radius: 50%;
+}
+
+.landing-screen {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+    background-image: url(landing-bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-blend-mode: multiply;
+    background-color: #8c8266b0;
+}
+
+h1.landing {
+    font-size: 3rem;
+    font-weight: 500;
+	letter-spacing: 1.2px;
+    text-shadow: 0px 1px 2px #232323a6;
+    color: #e6e7e8;;
+}
+
+h3 {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.payment-font{
+	font-size: 0.9rem;
+}
+.money-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.money-card {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 20%;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 5px;
+}
+
+h2.card-header {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+p.card-detail {
+    font-weight: 500;
+    font-size: 2.5rem;
+	margin: 10px;
+}
+
+h4 {
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #00000080;
+    letter-spacing: 1px;
 }
