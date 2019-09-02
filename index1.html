@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link href="fontface.css" rel="stylesheet">
+    <link href="fontface.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet1.css">
-	<link rel="stylesheet" href="jquery-ui.min.css">
-	<script src="jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="jquery-ui.min.css">
+    <script src="jquery-ui.min.js"></script>
 </head>
 
 <body>
     <section class="section">
-		
-		<div class="landing-screen">
-			<h1 class="landing">Couple & Couplet Wedding Registry</h1>
-			<p class="start">Click to Start</p>
-		</div>
+
+        <div class="landing-screen">
+            <h1 class="landing">Couple & Couplet Wedding Registry</h1>
+            <p class="start">Click to Start</p>
+        </div>
 
         <div class="col1">
             <h2 class="col1Header">Wedding App Name</h2>
@@ -28,11 +29,11 @@
                 </li>
                 <li class="step step--incomplete step--inactive" data-step="2">
                     <span class="step__icon"></span>
-                    <span class="step__label">Gift Amount</span>
+                    <span class="step__label">Select Party</span>
                 </li>
                 <li class="step step--incomplete step--inactive" data-step="3">
                     <span class="step__icon"></span>
-                    <span class="step__label">Card Details</span>
+                    <span class="step__label">Gift Details</span>
                 </li>
                 <li class="step step--incomplete step--inactive" data-step="4">
                     <span class="step__icon"></span>
@@ -45,155 +46,173 @@
         <div class="col2 animation-container ">
             <h1>Couple & Couplet Wedding Registry</h1>
             <!-- Step zero -->
-            
-			<div class="formContainer">
-				<!-- Step one -->
-				<div class="form-step js-form-step step--active" data-step="1">
-					<p class="form-instructions"><strong>Let's find your invitation</strong>
-						<br>
-					</p>
-					<div class="fieldgroup1">
-							<div class="autocomplete">
-								<input id="myInput" type="text" name="myInvitation" placeholder="&#x26A1; Type your invitation to search">
-							</div>
-					</div>
-				</div>
-				
-				<!-- Step two -->
-				<div class="form-step js-form-step waiting hidden" data-step="1.1">
 
-						<p class="form-instructions form-message-one">Woops looks like you werent on the list, enter your details</p>
+            <div class="formContainer">
+                <!-- Step one -->
+                <div class="form-step js-form-step step--active" data-step="1">
 
-						
-							<div class="fieldgroup1">
-								<div class="container vertical-divider">
-									  <div class="column one-third">
-										<h3>Bride</h3>
-										<img src="avatar.png" class="avatar-select bride"/>
-									  </div>
-									  <div class="column one-third">
-										<h3>Groom</h3>
-										<img src="avatar.png" class="avatar-select groom"/>
-									  </div>
-									  <div class="column one-third">
-										<h3>Both</h3>
-										<img src="avatar.png" class="avatar-select both"/>
-									  </div>
-									</div>
+                    <div class="inner-container">
+                        <p class="form-instructions"><strong>Let's find your invitation</strong>
+                            <br>
+                        </p>
+                        <div class="fieldgroup1">
+                            <div class="autocomplete">
+                                <input id="myInput" type="text" name="myInvitation" placeholder="&#x26A1; Type your invitation to search">
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Step two -->
+                <div class="form-step js-form-step waiting hidden" data-step="1.1">
+                    <div class="inner-container">
+                        <p class="form-instructions form-message-one">Woops looks like you werent on the list, enter your details</p>
+
+                        <div class="fieldgroup1">
+                            <div class="container vertical-divider">
+                                <div class="column one-third">
+                                    <h3>Bride</h3>
+                                    <img src="avatar.png" class="avatar-select bride" />
+                                </div>
+                                <div class="column one-third">
+                                    <h3>Groom</h3>
+                                    <img src="avatar.png" class="avatar-select groom" />
+                                </div>
+                                <div class="column one-third">
+                                    <h3>Both</h3>
+                                    <img src="avatar.png" class="avatar-select both" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step two -->
+                <div class="form-step js-form-step waiting hidden" data-step="2">
+                    <div class="inner-container">
+                        <p class="form-instructions form-message-two"></p>
+                        <div class="fieldgroup1">
+                            <div class="container vertical-divider">
+                                <div class="column one-third">
+                                    <h3>Bride</h3>
+                                    <img src="avatar.png" class="avatar-select bride" />
+                                </div>
+                                <div class="column one-third">
+                                    <h3>Groom</h3>
+                                    <img src="avatar.png" class="avatar-select groom" />
+                                </div>
+                                <div class="column one-third">
+                                    <h3>Both</h3>
+                                    <img src="avatar.png" class="avatar-select both" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step three -->
+                <div class="form-step js-form-step waiting hidden" data-step="3">
+                    <div class="inner-container">
+                        <p class="form-instructions form-message-three"></p>
+
+                        <div class="fieldgroup1">
+                            <div class="container vertical-divider payment-font">
+                                <div class="column one-third">
+                                    <h3>Money</h3>
+                                    <img src="avatar.png" class="avatar-select money" />
+                                </div>
+                                <div class="column one-third">
+                                    <h3>Jewlery / Other</h3>
+                                    <img src="avatar.png" class="avatar-select jewl" />
+                                </div>
+                                <div class="column one-third">
+                                    <h3>Both</h3>
+                                    <img src="avatar.png" class="avatar-select monjewl" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TODO  Step three.1 - HAVE 3 FORMS 1.Jewlery/Other Only 2.Money Form 3. Money Form and Jewlery/Other hide all irrevant forms based on what is selected on step3 -->
+                <div class="form-step js-form-step waiting hidden details-form" data-step="3.1">
+                    <div class="detail-container">
+                        <div class="inner-container">
+                            <p class="form-instructions form-message-three-one"></p>
+
+                            <form action="" name="form-step-3" class="money-form">
+								<input type="hidden" id="both" name="both" value=""/>
+                                <div class="money-area">
+                                    <h4>Please Select Amount of Money</h4>
+                                    <div class="money-container">
+                                        <div class="money-card five">
+                                            <h2 class="card-header">Five</h2>
+                                            <p class="card-detail">5</p>
+                                            <p class="card-footer">Dollars</p>
+                                        </div>
+                                        <div class="money-card ten">
+                                            <h2 class="card-header">Ten</h2>
+                                            <p class="card-detail">10</p>
+                                            <p class="card-footer">Dollars</p>
+                                        </div>
+                                        <div class="money-card twenty">
+                                            <h2 class="card-header">Twenty</h2>
+                                            <p class="card-detail">20</p>
+                                            <p class="card-footer">Dollars</p>
+                                        </div>
+                                        <div class="money-card fifty">
+                                            <h2 class="card-header">Fifty</h2>
+                                            <p class="card-detail">50</p>
+                                            <p class="card-footer">Dollars</p>
+                                        </div>
+                                        <div class="money-card hundred">
+                                            <h2 class="card-header">Hundred</h2>
+                                            <p class="card-detail">100</p>
+                                            <p class="card-footer">Dollars</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="other">
+                                    <h4>Enter Details</h4>
+                                    <input id="otherGift" type="text" name="myInvitation" placeholder="Please start typing details of gift">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="money-footer">
+                            <div class="footer-stack">
+                                <h4 class="footer-title">Details</h4>
+                                <div class="flex-details">
+									<p class="total-money"></p>
+									<p class="total-detail"></p>
 								</div>
-							</div>
-				
-				
-				<!-- Step two -->
-				<div class="form-step js-form-step waiting hidden" data-step="2">
+                            </div>
+                            <button class="confirm-button">Continue</button>
+                        </div>
+                    </div>
+                </div>
 
-						<p class="form-instructions form-message-two"></p>
-							<div class="fieldgroup1">
-								<div class="container vertical-divider">
-									  <div class="column one-third">
-										<h3>Bride</h3>
-										<img src="avatar.png" class="avatar-select bride"/>
-									  </div>
-									  <div class="column one-third">
-										<h3>Groom</h3>
-										<img src="avatar.png" class="avatar-select groom"/>
-									  </div>
-									  <div class="column one-third">
-										<h3>Both</h3>
-										<img src="avatar.png" class="avatar-select both"/>
-									  </div>
-									</div>
+                <!-- Step four -->
+                <div class="form-step js-form-step waiting hidden" data-step="4">
 
-								</div>
-				</div>
+                    <p class="form-instructions">
+                        <p class="form-instructions"><strong>Please confirm your submission</strong>
+                            <br>
+                        </p>
 
-				<!-- Step three -->
-				<div class="form-step js-form-step waiting hidden" data-step="3">
-
-						<p class="form-instructions form-message-three"></p>
-						
-							<div class="fieldgroup1">
-							<div class="container vertical-divider payment-font">
-								  <div class="column one-third">
-									<h3>Money</h3>
-									<img src="avatar.png" class="avatar-select money"/>
-								  </div>
-								  <div class="column one-third">
-									<h3>Jewlery / Other</h3>
-									<img src="avatar.png" class="avatar-select jewl"/>
-								  </div>
-								  <div class="column one-third">
-									<h3>Both</h3>
-									<img src="avatar.png" class="avatar-select monjewl"/>
-								  </div>
-								</div>
-
-							</div>
-				</div>
-				
-				<!-- TODO  Step three.1 - HAVE 3 FORMS 1.Jewlery/Other Only 2.Money Form 3. Money Form and Jewlery/Other hide all irrevant forms based on what is selected on step3 -->
-				<div class="form-step js-form-step waiting hidden details-form" data-step="3.1">
-
-						<p class="form-instructions form-message-three-one"></p>
-						
-						<form action="" name="form-step-3" class="money-form">
-								<h4>Please Select Amount of Money</h4>
-								<div class="money-container">
-									<div class="money-card">
-										<h2 class="card-header">Five</h2>
-										<p class="card-detail">5</p>
-										<p class="card-footer">Dollars</p>
-									</div>
-									<div class="money-card">
-										<h2 class="card-header">Ten</h2>
-										<p class="card-detail">10</p>
-										<p class="card-footer">Dollars</p>
-									</div>
-									<div class="money-card">
-										<h2 class="card-header">Twenty</h2>
-										<p class="card-detail">20</p>
-										<p class="card-footer">Dollars</p>
-									</div>
-									<div class="money-card">
-										<h2 class="card-header">Fifty</h2>
-										<p class="card-detail">50</p>
-										<p class="card-footer">Dollars</p>
-									</div>
-									<div class="money-card">
-										<h2 class="card-header">Hundred</h2>
-										<p class="card-detail">100</p>
-										<p class="card-footer">Dollars</p>
-									</div>
-								</div>
-						</form>
-						
-						<div class="money-footer">
-							<h4>Total</h4>
-							<p class="total-money"></p>
-							<button>Continue</button>
-						</div>
-				</div>
-				
-
-				<!-- Step four -->
-				<div class="form-step js-form-step waiting hidden" data-step="4">
-
-					<p class="form-instructions">
-						<p class="form-instructions"><strong>Please confirm your submission</strong>
-							<br>
-						</p>
-
-						<form action="" name="form-step-4">
-							<div>
-								<!-- image placeholder-->
-							</div>
-						</form>
-						<div class="buttons">
-							<button type="button" class="btn btn-alt js-reset">All done!</button>
-						</div>
-				</div>
-			</div>
+                        <form action="" name="form-step-4">
+                            <div>
+                                <!-- image placeholder-->
+                            </div>
+                        </form>
+                        <div class="buttons">
+                            <button type="button" class="btn btn-alt js-reset">All done!</button>
+                        </div>
+                </div>
+            </div>
         </div>
 
     </section>
@@ -216,10 +235,6 @@
             $('.js-form-step').not('.js-form-step[data-step="1"]').addClass('hidden waiting');
             $('.js-form-step[data-step="1"]').removeClass('hidden');
             $('.step').not('.one').removeClass('active');
-
-            $animContainer.css({
-                'paddingBottom': $('.js-form-step[data-step="1"]').height() + 'px'
-            });
 
             console.warn('Form reset.');
             return false;
@@ -253,19 +268,19 @@
         function showNextForm($currentForm) {
             var currentFormStep = parseInt($currentForm.attr('data-step')) || false;
             var $nextForm;
-			
-			if(currentFormStep == 3){
-				$nextForm = $('.js-form-step[data-step="3.1"]');
-			}else{
-				$nextForm = $('.js-form-step[data-step="' + (currentFormStep + 1) + '"]');
-			}
-			
+
+            if (currentFormStep == 3) {
+                $nextForm = $('.js-form-step[data-step="3.1"]');
+            } else {
+                $nextForm = $('.js-form-step[data-step="' + (currentFormStep + 1) + '"]');
+            }
+
             var currentStep = $('.step[data-step="' + (currentFormStep) + '"]');
             var nextStep = $('.step[data-step="' + (currentFormStep + 1) + '"]');
-			
-			console.log('Current form step is ' + currentFormStep);
+
+            console.log('Current form step is ' + currentFormStep);
             console.log('The next form is # ' + $nextForm.attr('data-step'));
-			
+
             console.log(currentStep.attr('data-step'));
             console.log(nextStep.attr('data-step'));
 
@@ -276,11 +291,6 @@
             setTimeout(function() {
                 $currentForm.addClass('hidden');
             }, 500);
-
-            // Animate container to height of form
-            $animContainer.css({
-                'paddingBottom': $nextForm.height() + 'px'
-            });
 
             // Show next form fields
             $nextForm.removeClass('hidden')
@@ -328,20 +338,23 @@
 
             return false;
         }
-		
-		$('.start').click(function() {
-			$('.landing-screen').hide();	
-			$('.col1').show();
-			$('.col2').show();
-		});
+
+        $('.start').click(function() {
+            $('.landing-screen').hide();
+            $('.col1').show();
+            $('.col2').show();
+        });
 
         /* Starts */
         function init() {
             formReset();
             setupFloatLabels();
             setupClickHandlers();
-			$('.col1').hide();
-			$('.col2').hide();
+            $('.col1').hide();
+            $('.col2').hide();
+            $('.total-money').hide();
+            $('.money-area').hide();
+            $('.other').hide();
         }
 
         init();
@@ -361,115 +374,175 @@
 
     <!--autocomplete box-->
     <script>
-        
-
         /*An array containing all the country names in the world:*/
         var invitations = ["sack01", "sack02", "sack03", "sack04", "sack05"];
-		var name = "";
-		var party = "";
-		
+        var gifts = ["gold", "necklace", "ear ring", "ring", "set"];
+        var name = "";
+        var party = "";
+        var total = 0;
+		var both = false;
+
         /*initiate the autocomplete function on the "myInput" element, and pass along the array as possible autocomplete values:*/
-        $( "#myInput" ).autocomplete({
-			source: invitations,
-			select: function( event, ui) {
-				name = ui.item.value;
-				setPartyName(name);
-				
-				event.preventDefault();
+        $("#myInput").autocomplete({
+            source: invitations,
+            select: function(event, ui) {
+                name = ui.item.value;
+                setPartyName(name);
+
+                event.preventDefault();
                 var $currentForm = $(this).parents('.js-form-step');
                 showNextForm($currentForm);
+            }
+        });
+
+        $("#otherGift").autocomplete({
+            source: gifts,
+			select: function( event, ui){
+				if(both){
+					$(".total-detail").text(', ' + ui.item.value);
+					$('.total-detail').css('margin','0');
+					$('.total-money').show();
+				}else{
+					$(".total-detail").text(ui.item.value);
+				}
 			}
-		});
-		
-		
-		function setPartyName($name){
-			
-			var message = 'Hi ' + $name +', who are you giving a gift to today?';
-			$('.form-message-two').text(message);
-		}
-		
-		
-		$(function(){
-			$('.bride').click( function(){
-				party = "Arati";
-				setGiftName(party)
-				
-				event.preventDefault();
+
+        });
+
+        function setPartyName($name) {
+
+            var message = 'Hi ' + $name + ', who are you giving a gift to today?';
+            $('.form-message-two').text(message);
+        }
+
+        $(function() {
+            $('.bride').click(function() {
+                party = "Arati";
+                setGiftName(party)
+
+                event.preventDefault();
                 var $currentForm = $(this).parents('.js-form-step');
                 showNextForm($currentForm);
-				
-			});
-		});
-			
-			
-		$(function(){		
-			$('.groom').click( function(){
-				party = "Himesh";
-				setGiftName(party)
-				
-				event.preventDefault();
+
+            });
+        });
+
+        $(function() {
+            $('.groom').click(function() {
+                party = "Himesh";
+                setGiftName(party)
+
+                event.preventDefault();
                 var $currentForm = $(this).parents('.js-form-step');
                 showNextForm($currentForm);
-			});
-		});
-			
-		$(function(){
-			$('.both').click( function(){
-				party = "Arati";
-				setGiftName(party)
-				
-				event.preventDefault();
+            });
+        });
+
+        $(function() {
+            $('.both').click(function() {
+                party = "Arati";
+                setGiftName(party)
+				$('#both').val('Both');
+                event.preventDefault();
                 var $currentForm = $(this).parents('.js-form-step');
                 showNextForm($currentForm);
-			});
-		});
-		
-		$(function(){
-			$('.money').click( function(){
-				setGiftDetails()
-				
-				event.preventDefault();
+            });
+        });
+
+        $(function() {
+            $('.money').click(function() {
+                setGiftDetails()
+
+                event.preventDefault();
                 var $currentForm = $(this).parents('.js-form-step');
+
+                $('.money-area').show();
                 showNextForm($currentForm);
-				
-			});
-		});
-			
-			
-		$(function(){		
-			$('.jewl').click( function(){
-				setGiftDetails()
-				
-				event.preventDefault();
+
+            });
+        });
+
+        $(function() {
+            $('.jewl').click(function() {
+                setGiftDetails()
+
+                event.preventDefault();
                 var $currentForm = $(this).parents('.js-form-step');
+                $('.other').show();
                 showNextForm($currentForm);
-			});
-		});
-			
-		$(function(){
-			$('.monjewl').click( function(){
-				setGiftDetails()
-				
-				event.preventDefault();
+            });
+        });
+
+        $(function() {
+            $('.monjewl').click(function() {
+                setGiftDetails()
+				both = true;
+                event.preventDefault();
                 var $currentForm = $(this).parents('.js-form-step');
+                $('.money-area').show();
+                $('.other').show();
                 showNextForm($currentForm);
-			});
-		});
-		
-		function setGiftName($party){
-			
-			var message = 'Hi ' + name + ', what type of gift are you giving ' +$party + ' today?';
-			$('.form-message-three').text(message);					
-		}
-		
-		function setGiftDetails(){
-			
-			var message = 'Please fill your gift details for ' + party;
-			$('.form-message-three-one').text(message);					
-		}
-		
-		
+            });
+        });
+
+        //function to set Message on Gift Select screen
+        function setGiftName($party) {
+
+            var message = 'Hi ' + name + ', what type of gift are you giving ' + $party + ' today?';
+            $('.form-message-three').text(message);
+        }
+
+        //function to set Message on Gift Entry screen
+        function setGiftDetails() {
+
+            var message = 'Please fill your gift details for ' + party;
+            $('.form-message-three-one').text(message);
+        }
+
+        //Fuction to handle click event and add money to total
+        $(function() {
+
+            var num = 0;
+            total = 0;
+
+            $('.one').click(function() {
+                total += num + 1;
+                $(".total-money").text(total);
+                $('.total-money').show();
+            });
+
+            $('.five').click(function() {
+                total += num + 5;
+                $(".total-money").text(total);
+                $('.total-money').show();
+            });
+
+            $('.ten').click(function() {
+                total += num + 10;
+                $(".total-money").text(total);
+                $('.total-money').show();
+            });
+
+            $('.fifty').click(function() {
+                total += num + 50;
+                $(".total-money").text(total);
+                $('.total-money').show();
+            });
+
+            $('.twenty').click(function() {
+                total += num + 20;
+                $(".total-money").text(total);
+                $('.total-money').show();
+            });
+
+            $('.hundred').click(function() {
+                total += num + 100;
+                $(".total-money").text(total);
+                $('.total-money').show();
+            });
+        });
     </script>
+
 </body>
 
 </html>
