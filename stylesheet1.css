@@ -761,7 +761,7 @@ h4 {
 	margin: 10px 30px;
 }
 
-button.confirm-button {
+button.button-style {
 	width: 8rem;
 	height: 3rem;
 	margin: auto 2rem auto 0px;
@@ -794,6 +794,7 @@ p.total-money {
 	font-size: 2rem;
 	font-weight: 600;
 	letter-spacing: 1px;
+	text-transform: capitalize;
 }
 
 .flex-details {
