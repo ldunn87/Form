@@ -10,16 +10,15 @@
     <link rel="stylesheet" type="text/css" href="stylesheet1.css">
     <link rel="stylesheet" href="jquery-ui.min.css">
     <script src="jquery-ui.min.js"></script>
+	<script src="main.js"></script>
 </head>
 
 <body>
     <section class="section">
-
         <div class="landing-screen">
             <h1 class="landing">Couple & Couplet Wedding Registry</h1>
             <p class="start">Click to Start</p>
         </div>
-
         <div class="col1">
             <h2 class="col1Header">Wedding App Name</h2>
             <ul class="steps">
@@ -39,17 +38,19 @@
                     <span class="step__icon"></span>
                     <span class="step__label">Confirm</span>
                 </li>
+				<li class="step step--incomplete step--inactive" data-step="5">
+                    <span class="step__icon"></span>
+                    <span class="step__label">Thank You</span>
+                </li>
             </ul>
-
         </div>
-
         <div class="col2 animation-container ">
             <h1>Couple & Couplet Wedding Registry</h1>
             <!-- Step zero -->
 
             <div class="formContainer">
                 <!-- Step one -->
-                <div class="form-step js-form-step step--active" data-step="1">
+                <div class="form-step" data-step="1">
 
                     <div class="inner-container">
                         <p class="form-instructions"><strong>Let's find your invitation</strong>
@@ -64,7 +65,7 @@
                 </div>
 
                 <!-- Step two -->
-                <div class="form-step js-form-step waiting hidden" data-step="1.1">
+                <div class="form-step" data-step="1.1">
                     <div class="inner-container">
                         <p class="form-instructions form-message-one">Woops looks like you werent on the list, enter your details</p>
 
@@ -89,7 +90,7 @@
                 </div>
 
                 <!-- Step two -->
-                <div class="form-step js-form-step waiting hidden" data-step="2">
+                <div class="form-step" data-step="2">
                     <div class="inner-container">
                         <p class="form-instructions form-message-two"></p>
                         <div class="fieldgroup1">
@@ -113,7 +114,7 @@
                 </div>
 
                 <!-- Step three -->
-                <div class="form-step js-form-step waiting hidden" data-step="3">
+                <div class="form-step" data-step="3">
                     <div class="inner-container">
                         <p class="form-instructions form-message-three"></p>
 
@@ -138,7 +139,7 @@
                 </div>
 
                 <!-- TODO  Step three.1 - HAVE 3 FORMS 1.Jewlery/Other Only 2.Money Form 3. Money Form and Jewlery/Other hide all irrevant forms based on what is selected on step3 -->
-                <div class="form-step js-form-step waiting hidden details-form" data-step="3.1">
+                <div class="form-step details-form" data-step="3.1">
                     <div class="detail-container">
                         <div class="inner-container">
                             <p class="form-instructions form-message-three-one"></p>
@@ -190,18 +191,15 @@
 									<p class="total-detail"></p>
 								</div>
                             </div>
-                            <button class="confirm-button">Continue</button>
+                            <button class="confirm-button button-style">Continue</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Step four -->
-                <div class="form-step js-form-step waiting hidden" data-step="4">
-
-                    <p class="form-instructions">
-                        <p class="form-instructions"><strong>Please confirm your submission</strong>
-                            <br>
-                        </p>
+                <div class="form-step" data-step="4">
+					<div class="inner-container">
+                        <p class="form-instructions form-message-four">Please confrim the details below are correct</p>
 
                         <form action="" name="form-step-4">
                             <div>
@@ -209,340 +207,23 @@
                             </div>
                         </form>
                         <div class="buttons">
-                            <button type="button" class="btn btn-alt js-reset">All done!</button>
+                            <button class="button-style">Complete</button>
                         </div>
+					</div>
+                </div>
+				
+				<div class="form-step" data-step="5">
+					<div class="inner-container">
+                        <p class="form-instructions form-message-five">Thank you</p>
+						
+							<div>
+                                <!-- image placeholder-->
+                            </div>
+					</div>
                 </div>
             </div>
         </div>
-
     </section>
-    </div>
-
-    <script>
-        var $body = $('body');
-        var $progressBar = $('progress');
-        var $animContainer = $('.animation-container');
-        var value = 0;
-        var transitionEnd = 'webkitTransitionEnd transitionend';
-
-        // Resets the form back to the default state.
-
-        function formReset() {
-            value = 0;
-            $progressBar.val(value);
-            $('form input').not('button').val('').removeClass('hasInput');
-            $('.js-form-step').removeClass('left leaving');
-            $('.js-form-step').not('.js-form-step[data-step="1"]').addClass('hidden waiting');
-            $('.js-form-step[data-step="1"]').removeClass('hidden');
-            $('.step').not('.one').removeClass('active');
-
-            console.warn('Form reset.');
-            return false;
-        }
-
-        // Sets up the click handlers on the form. Next/reset.
-
-        function setupClickHandlers() {
-
-            // Show next form on continue click
-            $('button[type="submit"]').on('click', function(event) {
-                event.preventDefault();
-                var $currentForm = $(this).parents('.js-form-step');
-                showNextForm($currentForm);
-            });
-
-            // Reset form on reset button click
-            $('.js-reset').on('click', function() {
-                formReset();
-                $('.step[data-step="1"]').removeClass('step--complete').addClass('step--incomplete');
-                $('.step[data-step="1"]').nextAll().removeClass('step--complete').addClass('step--incomplete');
-                $('.step[data-step="1"]').nextAll().removeClass('step--active').addClass('step--inactive');
-            });
-
-            return false;
-        }
-
-        // Shows the next form.
-        // @param - Node - The current form.
-
-        function showNextForm($currentForm) {
-            var currentFormStep = parseInt($currentForm.attr('data-step')) || false;
-            var $nextForm;
-
-            if (currentFormStep == 3) {
-                $nextForm = $('.js-form-step[data-step="3.1"]');
-            } else {
-                $nextForm = $('.js-form-step[data-step="' + (currentFormStep + 1) + '"]');
-            }
-
-            var currentStep = $('.step[data-step="' + (currentFormStep) + '"]');
-            var nextStep = $('.step[data-step="' + (currentFormStep + 1) + '"]');
-
-            console.log('Current form step is ' + currentFormStep);
-            console.log('The next form is # ' + $nextForm.attr('data-step'));
-
-            console.log(currentStep.attr('data-step'));
-            console.log(nextStep.attr('data-step'));
-
-            $body.addClass('freeze');
-
-            // Hide current form fields
-            $currentForm.addClass('leaving');
-            setTimeout(function() {
-                $currentForm.addClass('hidden');
-            }, 500);
-
-            // Show next form fields
-            $nextForm.removeClass('hidden')
-                .addClass('coming')
-                .one(transitionEnd, function() {
-                    $nextForm.removeClass('coming waiting');
-                });
-
-            currentStep.removeClass('step--incomplete').addClass('step--complete');
-            currentStep.removeClass('step--active').addClass('step--inactive');
-            currentStep.next().removeClass('step--inactive').addClass('step--active');
-
-            $body.removeClass('freeze');
-
-            return false;
-        }
-
-        // Sets up and handles the float labels on the inputs.
-        function setupFloatLabels() {
-            // Check the inputs to see if we should keep the label floating or not
-            $('form input').not('button').on('blur', function() {
-
-                // Different validation for different inputs
-                switch (this.tagName) {
-                    case 'SELECT':
-                        if (this.value > 0) {
-                            this.className = 'hasInput';
-                        } else {
-                            this.className = '';
-                        }
-                        break;
-
-                    case 'INPUT':
-                        if (this.value !== '') {
-                            this.className = 'hasInput';
-                        } else {
-                            this.className = '';
-                        }
-                        break;
-
-                    default:
-                        break;
-                }
-            });
-
-            return false;
-        }
-
-        $('.start').click(function() {
-            $('.landing-screen').hide();
-            $('.col1').show();
-            $('.col2').show();
-        });
-
-        /* Starts */
-        function init() {
-            formReset();
-            setupFloatLabels();
-            setupClickHandlers();
-            $('.col1').hide();
-            $('.col2').hide();
-            $('.total-money').hide();
-            $('.money-area').hide();
-            $('.other').hide();
-        }
-
-        init();
-    </script>
-
-    <!--here we are adding script for the value to display for range slider-->
-    <script>
-        var slider = document.getElementById("myRange");
-        var output = document.getElementById("money");
-        output.innerHTML = slider.value; // Display the default slider value
-
-        // Update the current slider value (each time you drag the slider handle)
-        slider.oninput = function() {
-            output.innerHTML = this.value;
-        }
-    </script>
-
-    <!--autocomplete box-->
-    <script>
-        /*An array containing all the country names in the world:*/
-        var invitations = ["sack01", "sack02", "sack03", "sack04", "sack05"];
-        var gifts = ["gold", "necklace", "ear ring", "ring", "set"];
-        var name = "";
-        var party = "";
-        var total = 0;
-		var both = false;
-
-        /*initiate the autocomplete function on the "myInput" element, and pass along the array as possible autocomplete values:*/
-        $("#myInput").autocomplete({
-            source: invitations,
-            select: function(event, ui) {
-                name = ui.item.value;
-                setPartyName(name);
-
-                event.preventDefault();
-                var $currentForm = $(this).parents('.js-form-step');
-                showNextForm($currentForm);
-            }
-        });
-
-        $("#otherGift").autocomplete({
-            source: gifts,
-			select: function( event, ui){
-				if(both){
-					$(".total-detail").text(', ' + ui.item.value);
-					$('.total-detail').css('margin','0');
-					$('.total-money').show();
-				}else{
-					$(".total-detail").text(ui.item.value);
-				}
-			}
-
-        });
-
-        function setPartyName($name) {
-
-            var message = 'Hi ' + $name + ', who are you giving a gift to today?';
-            $('.form-message-two').text(message);
-        }
-
-        $(function() {
-            $('.bride').click(function() {
-                party = "Arati";
-                setGiftName(party)
-
-                event.preventDefault();
-                var $currentForm = $(this).parents('.js-form-step');
-                showNextForm($currentForm);
-
-            });
-        });
-
-        $(function() {
-            $('.groom').click(function() {
-                party = "Himesh";
-                setGiftName(party)
-
-                event.preventDefault();
-                var $currentForm = $(this).parents('.js-form-step');
-                showNextForm($currentForm);
-            });
-        });
-
-        $(function() {
-            $('.both').click(function() {
-                party = "Arati";
-                setGiftName(party)
-				$('#both').val('Both');
-                event.preventDefault();
-                var $currentForm = $(this).parents('.js-form-step');
-                showNextForm($currentForm);
-            });
-        });
-
-        $(function() {
-            $('.money').click(function() {
-                setGiftDetails()
-
-                event.preventDefault();
-                var $currentForm = $(this).parents('.js-form-step');
-
-                $('.money-area').show();
-                showNextForm($currentForm);
-
-            });
-        });
-
-        $(function() {
-            $('.jewl').click(function() {
-                setGiftDetails()
-
-                event.preventDefault();
-                var $currentForm = $(this).parents('.js-form-step');
-                $('.other').show();
-                showNextForm($currentForm);
-            });
-        });
-
-        $(function() {
-            $('.monjewl').click(function() {
-                setGiftDetails()
-				both = true;
-                event.preventDefault();
-                var $currentForm = $(this).parents('.js-form-step');
-                $('.money-area').show();
-                $('.other').show();
-                showNextForm($currentForm);
-            });
-        });
-
-        //function to set Message on Gift Select screen
-        function setGiftName($party) {
-
-            var message = 'Hi ' + name + ', what type of gift are you giving ' + $party + ' today?';
-            $('.form-message-three').text(message);
-        }
-
-        //function to set Message on Gift Entry screen
-        function setGiftDetails() {
-
-            var message = 'Please fill your gift details for ' + party;
-            $('.form-message-three-one').text(message);
-        }
-
-        //Fuction to handle click event and add money to total
-        $(function() {
-
-            var num = 0;
-            total = 0;
-
-            $('.one').click(function() {
-                total += num + 1;
-                $(".total-money").text(total);
-                $('.total-money').show();
-            });
-
-            $('.five').click(function() {
-                total += num + 5;
-                $(".total-money").text(total);
-                $('.total-money').show();
-            });
-
-            $('.ten').click(function() {
-                total += num + 10;
-                $(".total-money").text(total);
-                $('.total-money').show();
-            });
-
-            $('.fifty').click(function() {
-                total += num + 50;
-                $(".total-money").text(total);
-                $('.total-money').show();
-            });
-
-            $('.twenty').click(function() {
-                total += num + 20;
-                $(".total-money").text(total);
-                $('.total-money').show();
-            });
-
-            $('.hundred').click(function() {
-                total += num + 100;
-                $(".total-money").text(total);
-                $('.total-money').show();
-            });
-        });
-    </script>
-
 </body>
 
 </html>
