@@ -181,6 +181,7 @@
 		$(".total-money").text('');
 		$(".total-money").hide();
 		$('.other').hide();
+		$('.money-area').hide();
 		$('#both').val('');
 		$("#otherGift").val('');
 		moveToSelectGift();
@@ -193,8 +194,11 @@
 				$('.confirm-button').text('Continue');
 				$('.money-area').hide();
 				$('.other').show();	
-				done = true;
 				return;
+			}else{
+					saveData();
+					bothPartyGifts();
+					return;	
 			}
 		}else{
 			if( $('.confirm-button').text() == 'Next' ){
@@ -298,10 +302,6 @@
 			}else if (bothParties == 'Both' && count == 1 ){
 				repeat = true;
 				multipleGiftsValidate(repeat);
-				if($('.confirm-button').text() == 'Continue' && $("#otherGift").val() != ''){
-					saveData();
-					bothPartyGifts();
-				}
 				count++;
 			}else{
 				repeat = false;
