@@ -284,9 +284,9 @@ input[type=text] {
 }
 
 .buttons {
-	display: flex;
-	bottom: 0px;
-	justify-content: space-between;
+    display: flex;
+    align-self: flex-end;
+    margin: 0px 5px 30px 0px;
 }
 
 form .btn {
@@ -767,7 +767,7 @@ button.button-style {
 	margin: auto 2rem auto 0px;
 	border-radius: 50px;
 	border: 1px solid #0d69d2;
-	box-shadow: 0px 2px 4px #2323234a;
+	box-shadow: 0px 2px 6px 0 rgba(0, 0, 0, 0.2);
 	background-color: #07f;
 	font-family: inherit;
 	font-size: medium;
@@ -779,6 +779,14 @@ p.total-money {
 	font-size: 2rem;
 	font-weight: 600;
 	letter-spacing: 1px;
+}
+
+.total-money, .sm-money:before {
+	content: '$';
+}
+
+.total-money, .sm-money:after {
+	content: '.00';
 }
 
 .total-money:before {
@@ -810,7 +818,33 @@ p.start {
     background-color: #cfcfcf1c;
     border: 1px solid #ffffff36;
     padding: 0.7rem 1rem;
-    border-radius: 5px;
-    box-shadow: 0px 1px 4px #2b2b2bb3;
+    border-radius: 30px;
+    box-shadow: 0px 2px 6px 0 rgba(0, 0, 0, 0.2);
     text-shadow: 0px 2px 3px #2b2b2beb;
+}
+
+h5 {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+}
+
+p.summary-detail {
+    margin: 10px 0;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.column-name {
+    flex-basis: 50%;
+}
+
+.name-summary {
+    display: flex;
+    flex-direction: row;
+}
+
+.gift-container {
+    display: flex;
 }
