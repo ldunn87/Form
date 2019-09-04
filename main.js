@@ -81,10 +81,12 @@
 	var gifts = ["gold", "necklace", "ear ring", "ring", "set"];
 	var name = "";
 	var party = "";
+	var other = "";
 	var total = 0;
 	var both = false;
 	var count = 1;
 	var repeat = false;
+	var data = [];
 
 	/*initiate the autocomplete function on the "myInput" element, and pass along the array as possible autocomplete values:*/
 	
@@ -103,6 +105,7 @@
 		$("#otherGift").autocomplete({
 			source: gifts,
 			select: function( event, ui){
+				other = ui.item.value;
 				if(both){
 					$(".total-detail").text(', ' + ui.item.value);
 					$('.total-detail').css('margin','0');
@@ -154,6 +157,7 @@
 	}
 	
 	function moveToSummary(){
+		buildSummary();
 		$('.form-step[data-step="3.1"]').hide();
 		$('.form-step[data-step="4"]').show();
 		
@@ -170,11 +174,13 @@
 		setGiftName(party);
 		setGiftDetails();
 		total = 0;
+		other = "";
 		both = false;
 		$('.form-step[data-step="3.1"]').hide();
 		$(".total-detail").text('');
 		$(".total-money").text('');
 		$(".total-money").hide();
+		$('.other').hide();
 		$('#both').val('');
 		$("#otherGift").val('');
 		moveToSelectGift();
@@ -187,6 +193,7 @@
 				$('.confirm-button').text('Continue');
 				$('.money-area').hide();
 				$('.other').show();	
+				done = true;
 				return;
 			}
 		}else{
@@ -195,10 +202,40 @@
 				$('.money-area').hide();
 				$('.other').show();	
 			}else{
+				saveData();
 				moveToSummary();
 			}
 		}
 	}
+	
+	function saveData(){
+		
+		var currentData = {};
+		currentData['name'] = name;
+		currentData['party'] = party
+		currentData['money'] = total
+		currentData['other'] = other || "";
+		
+		data.push(currentData);
+	
+	}
+	
+	function buildSummary(){
+		
+		$('.sm-name').text(name);
+		$('.sm-address').text('Mt Roskill,Auckland');
+		
+		for(var i=0, l = data.length; i < l; i++){
+			
+			
+			var extractedData = data[i];
+			console.log(data[i]);
+			console.log(extractedData['name']);
+			
+			$('.name-summary').after('<div class="gift-summary"><h4>Gift details for ' + extractedData['party'] + '</h4><div class="gift-container"><div class="column-name"><h5>Money</h5><p class="summary-detail sm-money">' + extractedData['money']  +'</p></div><div class="column-name"><h5>Other Gift</h5><p class="summary-detail sm-other">'+ extractedData['other'] + '</p></div></div></div>');
+		}
+	}
+	
 	
 	$(function() {
 		
@@ -255,11 +292,16 @@
 			var bothParties = $('#both').val();
 			
 			if(bothParties == 'Both' && count > 1 ){
+				saveData();
 				bothPartyGifts();
 				multipleGiftsValidate();
 			}else if (bothParties == 'Both' && count == 1 ){
-				 repeat = true;
+				repeat = true;
 				multipleGiftsValidate(repeat);
+				if($('.confirm-button').text() == 'Continue' && $("#otherGift").val() != ''){
+					saveData();
+					bothPartyGifts();
+				}
 				count++;
 			}else{
 				repeat = false;
