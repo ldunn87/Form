@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="/__/firebase/6.5.0/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#reserved-urls -->
+
+	<!-- Initialize Firebase -->
+	<script src="/__/firebase/init.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="fontface.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet1.css">
@@ -66,27 +74,49 @@
 
                 <!-- Step two -->
                 <div class="form-step" data-step="1.1">
-                    <div class="inner-container">
-                        <p class="form-instructions form-message-one">Woops looks like you werent on the list, enter your details</p>
+                    <div class="detail-container">
+						<div class="inner-container">
+							<p class="form-instructions form-message-one">Woops looks like you werent on the list, enter your details</p>
+							<form action="" id="new-contact" name="form-step-2">
+							
+								<!--action defines where to send form data -->
+								<div class="fieldgroup">
+									<label for="inp" class="inp">
+										<input type="text" id="first-name" placeholder="&nbsp;">
+										<span class="label">First Name</span>
+										<span class="border"></span>
+									</label>
+								</div>
 
-                        <div class="fieldgroup1">
-                            <div class="container vertical-divider">
-                                <div class="column one-third">
-                                    <h3>Bride</h3>
-                                    <img src="avatar.png" class="avatar-select bride" />
-                                </div>
-                                <div class="column one-third">
-                                    <h3>Groom</h3>
-                                    <img src="avatar.png" class="avatar-select groom" />
-                                </div>
-                                <div class="column one-third">
-                                    <h3>Both</h3>
-                                    <img src="avatar.png" class="avatar-select both" />
-                                </div>
-                            </div>
+								<div class="fieldgroup">
+									<label for="inp" class="inp">
+										<input type="text"  id="last-name"id="inp" placeholder="&nbsp;">
+										<span class="label">Last Name</span>
+										<span class="border"></span>
+									</label>
+								</div>
 
-                        </div>
-                    </div>
+								<div class="fieldgroup">
+									<label for="inp" class="inp">
+										<input type="text"  id="suburb"id="inp" placeholder="&nbsp;">
+										<span class="label">Suburb</span>
+										<span class="border"></span>
+									</label>
+								</div>
+								
+								<div class="fieldgroup">
+									<label for="inp" class="inp">
+										<input type="text" id="city" id="inp" placeholder="&nbsp;">
+										<span class="label">City</span>
+										<span class="border"></span>
+									</label>
+								</div>
+							</form>
+						</div>
+						<div class="buttons">
+							<button class="button-style next-button">Next</button>
+						</div>
+					</div>
                 </div>
 
                 <!-- Step two -->
@@ -175,6 +205,16 @@
                                             <p class="card-footer">Dollars</p>
                                         </div>
                                     </div>
+									<div class="dollar-container">
+										<div class="buttons reset-margin">
+											<button class="button-style dollar-button">Add a Dollar</button>
+										</div>
+									</div>
+									
+									<div class="amount-container">
+										<h4 class="reset-margin">Please Enter Amount of Money</h4>
+										<input id="amount" type="number" name="myInvitation" placeholder="Please enter Amount of Money">
+									</div>
                                 </div>
 
                                 <div class="other">
@@ -200,17 +240,16 @@
                 <div class="form-step summary-screen" data-step="4">
 					<div class="detail-container">
 						<div class="inner-container">
-							<p class="form-instructions form-message-four">Please confrim the details below are correct</p>
+							<p class="form-instructions form-message-four">Please confirm the details below are correct</p>
 
 							<form action="" name="form-step-4">
 								<div>
-									<h4>Summary</h4>
 									<div class="summary-container">
 									
 										<div class="name-summary">
 											<div class="column-name">
 												<h5>Name</h5>
-												<p class="summary-detail sm-name">Bharat Dhanji</p>
+												<p class="summary-detail sm-name"></p>
 											</div>
 											<div class="column-name">
 												<h5>Suburb/City</h5>
@@ -223,7 +262,7 @@
 							</form>
 						</div>
 						<div class="buttons">
-							<button class="button-style">Complete</button>
+							<button class="button-style complete-button">Complete</button>
 						</div>
 					</div>
                 </div>
