@@ -61,20 +61,6 @@ h1 {
 	min-height: 94%;
 }
 
-
-/* This is to add a different color top square as background
-.section:before {
-  content: "";
-  width: 100%;
-  background: #a7b9c7;
-  height: 170px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  border-bottom: 1px solid rgba(0, 0, 0, .2);
-}*/
-
 .form-instructions {
 	text-align: left;
 	font-size: 2.5rem;
@@ -656,4 +642,35 @@ input#amount {
 
 h4.reset-margin{
 	margin-bottom:1.33rem;
+}
+
+/* Animation definitions */
+
+.collapse-active {
+
+}
+
+.collapse{
+	animation-name: collapse;
+	animation-duration: 5s;
+}
+
+
+@keyframes collapse{
+	0% {
+	transform: scale(1);
+	border-radius: 0%;
+	width: 100%;
+}
+50% {
+	background-color: orange;
+	border-radius: 2%
+	width: 60%;
+}
+100% {
+	transform: scale(.25);
+	background-color: yellow;
+	border-radius: 5%
+	width: 30%;
+}
 }
