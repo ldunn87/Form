@@ -15,14 +15,42 @@
 	});
 
 	function formReset() {
+		
+		$('.step[data-step="1"]').removeClass('step--complete').addClass('step--incomplete');
+		$('.step[data-step="1"]').nextAll().removeClass('step--complete').addClass('step--incomplete');
+		$('.step[data-step="1"]').nextAll().removeClass('step--active').addClass('step--inactive');
 		$('form input').not('button').val('').removeClass('hasInput');
-		$('.js-form-step').removeClass('left leaving');
-		$('.js-form-step').not('.js-form-step[data-step="1"]').addClass('hidden waiting');
-		$('.js-form-step[data-step="1"]').removeClass('hidden');
 		$('.step').not('.one').removeClass('active');
-
+		$('.col1').hide();
+		$('.col2').hide();
+		$('.total-money').hide();
+		$('.money-area').hide();
+		$('.other').hide();
+		$('.form-step[data-step="1"]').show();
+		$('.form-step[data-step="1.1"]').hide();
+		$('.form-step[data-step="2"]').hide();
+		$('.form-step[data-step="3"]').hide();
+		$('.form-step[data-step="3.1"]').hide();
+		$('.form-step[data-step="4"]').hide();
+		$('.form-step[data-step="5"]').hide();
+		$(".total-detail").text('');
+		$(".total-money").text('');
+		$('#both').val('');
+		$("#otherGift").val('');
+		$("#myInput").val('');
+		$('#new-contact').trigger("reset");
+		$( ".gift-summary" ).remove();
+		name = "";
+		address = "";
+		party = "";
+		other = "";
+		total = 0;
+		both = false;
+		count = 1;
+		repeat = false;
+		data.length = 0;
+		$('.landing-screen').show();
 		console.warn('Form reset.');
-		return false;
 	}
 
 	// Sets up and handles the float labels on the inputs.
@@ -62,24 +90,13 @@
 	function init() {
 		formReset();
 		setupFloatLabels();
-		$('.col1').hide();
-		$('.col2').hide();
-		$('.total-money').hide();
-		$('.money-area').hide();
-		$('.other').hide();
-		$('.form-step[data-step="1"]').show();
-		$('.form-step[data-step="1.1"]').hide();
-		$('.form-step[data-step="2"]').hide();
-		$('.form-step[data-step="3"]').hide();
-		$('.form-step[data-step="3.1"]').hide();
-		$('.form-step[data-step="4"]').hide();
-		$('.form-step[data-step="5"]').hide();
 	}
 
 	/*An array containing all the country names in the world:*/
 	var invitations = ["sack01", "sack02", "sack03", "sack04", "sack05"];
 	var gifts = ["gold", "necklace", "ear ring", "ring", "set"];
 	var name = "";
+	var address = "";
 	var party = "";
 	var other = "";
 	var total = 0;
@@ -98,7 +115,22 @@
 				
 				setPartyName(name);
 				event.preventDefault();
-				moveToSelectParty();
+				
+				if(ui.item.value == ""){
+					moveToNewContact();
+				}else{
+					moveToSelectParty();
+				}
+			},
+			response: function(event, ui){
+				if(!ui.content.length){
+					var noresult = {value: "", label:"No Results Found - Please Wait..."};
+					ui.content.push(noresult);
+					setTimeout(function() { 
+						moveToNewContact();
+					}, 2000);
+					
+				}
 			}
 		});
 
@@ -118,12 +150,13 @@
 	});
 	
 	function moveToNewContact(){
+		$('.form-step[data-step="1"]').hide();
 		$('.form-step[data-step="1.1"]').show();
-	
 	}
 	
 	function moveToSelectParty(){
 		$('.form-step[data-step="1"]').hide();
+		$('.form-step[data-step="1.1"]').hide();
 		$('.form-step[data-step="2"]').show();
 		
 		var currentStep = $('.step[data-step="1"]');
@@ -168,6 +201,21 @@
 		currentStep.next().removeClass('step--inactive').addClass('step--active');
 	}
 	
+	function thankYouScreen(){
+		$('.form-step[data-step="4"]').hide();
+		$('.form-step[data-step="5"]').show();
+		
+		var currentStep = $('.step[data-step="5"]');
+		
+		currentStep.removeClass('step--incomplete').addClass('step--complete');
+		currentStep.removeClass('step--active').addClass('step--inactive');
+		currentStep.next().removeClass('step--inactive').addClass('step--active');
+		
+		setTimeout(function() { 
+			formReset();
+		}, 2000);
+	}
+	
 	function bothPartyGifts(){
 	
 		party = "Himesh";
@@ -180,8 +228,8 @@
 		$(".total-detail").text('');
 		$(".total-money").text('');
 		$(".total-money").hide();
-		$('.other').hide();
 		$('.money-area').hide();
+		$('.other').hide();
 		$('#both').val('');
 		$("#otherGift").val('');
 		moveToSelectGift();
@@ -194,11 +242,11 @@
 				$('.confirm-button').text('Continue');
 				$('.money-area').hide();
 				$('.other').show();	
+				done = true;
 				return;
 			}else{
-					saveData();
-					bothPartyGifts();
-					return;	
+				saveData();
+				bothPartyGifts();
 			}
 		}else{
 			if( $('.confirm-button').text() == 'Next' ){
@@ -216,6 +264,7 @@
 		
 		var currentData = {};
 		currentData['name'] = name;
+		currentData['address'] = address;
 		currentData['party'] = party
 		currentData['money'] = total
 		currentData['other'] = other || "";
@@ -227,7 +276,7 @@
 	function buildSummary(){
 		
 		$('.sm-name').text(name);
-		$('.sm-address').text('Mt Roskill,Auckland');
+		$('.sm-address').text(address);
 		
 		for(var i=0, l = data.length; i < l; i++){
 			
@@ -237,6 +286,22 @@
 			console.log(extractedData['name']);
 			
 			$('.name-summary').after('<div class="gift-summary"><h4>Gift details for ' + extractedData['party'] + '</h4><div class="gift-container"><div class="column-name"><h5>Money</h5><p class="summary-detail sm-money">' + extractedData['money']  +'</p></div><div class="column-name"><h5>Other Gift</h5><p class="summary-detail sm-other">'+ extractedData['other'] + '</p></div></div></div>');
+		}
+	}
+	
+	function controlLoop(){
+		var bothParties = $('#both').val();
+			
+		if(bothParties == 'Both' && count > 1 ){
+			bothPartyGifts();
+			multipleGiftsValidate();
+		}else if (bothParties == 'Both' && count == 1 ){
+			repeat = true;
+			multipleGiftsValidate(repeat);
+			count++;
+		}else{
+			repeat = false;
+			multipleGiftsValidate(repeat);
 		}
 	}
 	
@@ -292,21 +357,33 @@
 		});
 		
 		$('.confirm-button').click(function(){
+			controlLoop();
+		});
+		
+		$('.complete-button').click(function(){
+			thankYouScreen();
+		});
+		
+		$('.next-button').click(function(){
 			
-			var bothParties = $('#both').val();
 			
-			if(bothParties == 'Both' && count > 1 ){
-				saveData();
-				bothPartyGifts();
-				multipleGiftsValidate();
-			}else if (bothParties == 'Both' && count == 1 ){
-				repeat = true;
-				multipleGiftsValidate(repeat);
-				count++;
-			}else{
-				repeat = false;
-				multipleGiftsValidate(repeat);
-			}
+			var _fname = toTitleCase($('#first-name').val());
+			var _lname = toTitleCase($('#last-name').val());
+			var _suburb = toTitleCase($('#suburb').val());
+			var _city = toTitleCase($('#city').val());
+			
+			name = _fname + " " + _lname;
+			address = _suburb + "," + _city;
+			setPartyName(name);
+			moveToSelectParty();
+		});
+		
+		$('.dollar-button').click(function(event){
+			event.preventDefault();
+			event.stopPropagation();
+			total += 1;
+			$(".total-money").text(total);
+			$('.total-money').show();
 		});
 		
 	});
@@ -336,6 +413,16 @@
 			$('.other').hide();
 			$('.confirm-button').text('Next');
 	}
+	
+	function ucwords(str,force){
+		str=force ? str.toLowerCase() : str;  
+		return str.replace(/(\b)([a-zA-Z])/g,
+           function(firstLetter){
+              return   firstLetter.toUpperCase();
+           });
+	}
+	
+	
 
 	//Fuction to handle click event and add money to total
 	$(function() {
@@ -378,4 +465,13 @@
 			$(".total-money").text(total);
 			$('.total-money').show();
 		});
+		
 	});
+	
+	function toTitleCase(str) {
+        var lcStr = str.toLowerCase();
+        return lcStr.replace(/(?:^|\s)\w/g, function(match) {
+            return match.toUpperCase();
+        });
+    }
+	
