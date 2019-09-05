@@ -385,6 +385,10 @@
 			$(".total-money").text(total);
 			$('.total-money').show();
 		});
+		
+		$('#confirmButton').click(function() {
+		  $('.collapse').toggleClass('collapse-active');
+		});
 
 	});
 
@@ -475,6 +479,4 @@
         });
     }
 
-		$('#confirmButton').click(function() {
-		  $('.collapse').toggleClass('collapse-active');
-		});
+
