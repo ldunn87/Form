@@ -361,6 +361,7 @@
 		});
 
 		$('.complete-button').click(function(){
+			$('.collapse-active').toggleClass('collapse');
 			thankYouScreen();
 		});
 
@@ -385,11 +386,6 @@
 			$(".total-money").text(total);
 			$('.total-money').show();
 		});
-		
-		$('#confirmButton').click(function() {
-		  $('.collapse').toggleClass('collapse-active');
-		});
-
 	});
 
 	//function to set Message on Gift Select screen
