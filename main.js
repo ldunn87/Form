@@ -209,9 +209,7 @@
 		currentStep.removeClass('step--active').addClass('step--inactive');
 		currentStep.next().removeClass('step--inactive').addClass('step--active');
 	}
-	
-	//TODOO LOOP
-	
+		
 	function moveToSelectGiftTwo(){
 		$('.form-step[data-step="3.1"]').hide();
 		$('.form-step[data-step="3.2"]').show();
@@ -303,7 +301,6 @@
 		}
 	}
 	
-	//TODO SaveData
 	function saveData($party, $total, $other){
 		
 		var currentData = {};
@@ -321,8 +318,8 @@
 		$('.sm-name').text(name);
 		$('.sm-address').text(address);
 		
-		for(var i=0, l = data.length; i < l; i++){
-			var extractedData = data[i];
+		for(var i=0, l = data.length -1; l >= i; l--){
+			var extractedData = data[l];
 			$('.name-summary').after('<div class="gift-summary"><h4>Gift details for ' + extractedData['party'] + '</h4><div class="gift-container"><div class="column-name"><h5>Money</h5><p class="summary-detail sm-money">' + extractedData['money']  +'</p></div><div class="column-name"><h5>Other Gift</h5><p class="summary-detail sm-other">'+ extractedData['other'] + '</p></div></div></div>');
 		}
 	}
@@ -338,6 +335,24 @@
 		}
 	}
 	
+	function saveToFirebase(){
+		for(var i=0, l = data.length -1; l >= i; l--){
+			var extractedData = data[l];
+			db.collection("gifts").add({
+				name: extractedData['name'],
+				address: extractedData['address'],
+				party: extractedData['party'],
+				money: extractedData['money'],
+				other: extractedData['other']
+			})
+			.then(function(docRef) {
+				console.log("Document written with ID: ", docRef.id);
+			})
+			.catch(function(error) {
+				console.error("Error adding document: ", error);
+			});
+		}
+	}
 	
 	$(function() {
 		
@@ -423,6 +438,7 @@
 		
 		$('.complete-button').click(function(){
 			$('.collapse-active').toggleClass('collapse');
+			saveToFirebase();
 			thankYouScreen();
 		});
 		
@@ -484,7 +500,6 @@
 			$('.confirm-button').text('Next');
 	}
 	
-
 	//Fuction to handle click event and add money to total
 	$(function() {
 
