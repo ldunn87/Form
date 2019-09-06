@@ -155,7 +155,7 @@
 
 		});
 		
-		$("#otherGift2").autocomplete({
+		$("#otherGift-two").autocomplete({
 			source: gifts,
 			select: function( event, ui){
 				otherSecond = toTitleCase(ui.item.value);
