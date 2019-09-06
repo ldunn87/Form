@@ -78,7 +78,7 @@
 						<div class="inner-container">
 							<p class="form-instructions form-message-one">Woops looks like you werent on the list, enter your details</p>
 							<form action="" id="new-contact" name="form-step-2">
-
+							
 								<!--action defines where to send form data -->
 								<div class="fieldgroup">
 									<label for="inp" class="inp">
@@ -103,7 +103,7 @@
 										<span class="border"></span>
 									</label>
 								</div>
-
+								
 								<div class="fieldgroup">
 									<label for="inp" class="inp">
 										<input type="text" id="city" id="inp" placeholder="&nbsp;">
@@ -152,15 +152,15 @@
                             <div class="container vertical-divider payment-font">
                                 <div class="column one-third">
                                     <h3>Money</h3>
-                                    <img src="avatar.png" class="avatar-select money" />
+                                    <img src="avatar.png" class="avatar-select money mn-one" />
                                 </div>
                                 <div class="column one-third">
                                     <h3>Jewlery / Other</h3>
-                                    <img src="avatar.png" class="avatar-select jewl" />
+                                    <img src="avatar.png" class="avatar-select jewl jw-one" />
                                 </div>
                                 <div class="column one-third">
                                     <h3>Both</h3>
-                                    <img src="avatar.png" class="avatar-select monjewl" />
+                                    <img src="avatar.png" class="avatar-select monjewl mnjw-one" />
                                 </div>
                             </div>
 
@@ -176,30 +176,30 @@
 
                             <form action="" name="form-step-3" class="money-form">
 								<input type="hidden" id="both" name="both" value=""/>
-                                <div class="money-area">
+                                <div class="money-area ma-one">
                                     <h4>Please Select Amount of Money</h4>
                                     <div class="money-container">
-                                        <div class="money-card five">
+                                        <div class="money-card five fv-one">
                                             <h2 class="card-header">Five</h2>
                                             <p class="card-detail">5</p>
                                             <p class="card-footer">Dollars</p>
                                         </div>
-                                        <div class="money-card ten">
+                                        <div class="money-card ten tn-one">
                                             <h2 class="card-header">Ten</h2>
                                             <p class="card-detail">10</p>
                                             <p class="card-footer">Dollars</p>
                                         </div>
-                                        <div class="money-card twenty">
+                                        <div class="money-card twenty tw-one">
                                             <h2 class="card-header">Twenty</h2>
                                             <p class="card-detail">20</p>
                                             <p class="card-footer">Dollars</p>
                                         </div>
-                                        <div class="money-card fifty">
+                                        <div class="money-card fifty ff-one">
                                             <h2 class="card-header">Fifty</h2>
                                             <p class="card-detail">50</p>
                                             <p class="card-footer">Dollars</p>
                                         </div>
-                                        <div class="money-card hundred">
+                                        <div class="money-card hundred hn-one">
                                             <h2 class="card-header">Hundred</h2>
                                             <p class="card-detail">100</p>
                                             <p class="card-footer">Dollars</p>
@@ -207,17 +207,17 @@
                                     </div>
 									<div class="dollar-container">
 										<div class="buttons reset-margin">
-											<button class="button-style dollar-button">Add a Dollar</button>
+											<button class="button-style dollar-button dolr-one">Add a Dollar</button>
 										</div>
 									</div>
-
+									
 									<div class="amount-container">
 										<h4 class="reset-margin">Please Enter Amount of Money</h4>
 										<input id="amount" type="number" name="myInvitation" placeholder="Please enter Amount of Money">
 									</div>
                                 </div>
 
-                                <div class="other">
+                                <div class="other ot-one">
                                     <h4>Enter Details</h4>
                                     <input id="otherGift" type="text" name="myInvitation" placeholder="Please start typing details of gift">
                                 </div>
@@ -227,14 +227,107 @@
                             <div class="footer-stack">
                                 <h4 class="footer-title">Details</h4>
                                 <div class="flex-details">
-									<p class="total-money"></p>
-									<p class="total-detail"></p>
+									<p class="total-money money-one"></p>
+									<p class="total-detail detail-one"></p>
 								</div>
                             </div>
-                            <button class="confirm-button button-style">Continue</button>
+                            <button class="confirm-button button-style confirm-one">Continue</button>
                         </div>
                     </div>
                 </div>
+				
+				<div class="form-step" data-step="3.2">
+                    <div class="inner-container">
+                        <p class="form-instructions form-message-three-two"></p>
+
+                        <div class="fieldgroup1">
+                            <div class="container vertical-divider payment-font">
+                                <div class="column one-third">
+                                    <h3>Money</h3>
+                                    <img src="avatar.png" class="avatar-select money mn-two" />
+                                </div>
+                                <div class="column one-third">
+                                    <h3>Jewlery / Other</h3>
+                                    <img src="avatar.png" class="avatar-select jewl jw-two" />
+                                </div>
+                                <div class="column one-third">
+                                    <h3>Both</h3>
+                                    <img src="avatar.png" class="avatar-select monjewl mnjw-two" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TODO  Step three.1 - HAVE 3 FORMS 1.Jewlery/Other Only 2.Money Form 3. Money Form and Jewlery/Other hide all irrevant forms based on what is selected on step3 -->
+                <div class="form-step details-form" data-step="3.3">
+                    <div class="detail-container">
+                        <div class="inner-container">
+                            <p class="form-instructions form-message-three-three"></p>
+
+                            <form action="" name="form-step-3" class="money-form">
+								<input type="hidden" id="both2" name="both" value=""/>
+                                <div class="money-area ma-two">
+                                    <h4>Please Select Amount of Money</h4>
+                                    <div class="money-container">
+                                        <div class="money-card five fv-two">
+                                            <h2 class="card-header">Five</h2>
+                                            <p class="card-detail">5</p>
+                                            <p class="card-footer">Dollars</p>
+                                        </div>
+                                        <div class="money-card ten tn-two">
+                                            <h2 class="card-header">Ten</h2>
+                                            <p class="card-detail">10</p>
+                                            <p class="card-footer">Dollars</p>
+                                        </div>
+                                        <div class="money-card twenty tw-two">
+                                            <h2 class="card-header">Twenty</h2>
+                                            <p class="card-detail">20</p>
+                                            <p class="card-footer">Dollars</p>
+                                        </div>
+                                        <div class="money-card fifty ff-two">
+                                            <h2 class="card-header">Fifty</h2>
+                                            <p class="card-detail">50</p>
+                                            <p class="card-footer">Dollars</p>
+                                        </div>
+                                        <div class="money-card hundred hn-two">
+                                            <h2 class="card-header">Hundred</h2>
+                                            <p class="card-detail">100</p>
+                                            <p class="card-footer">Dollars</p>
+                                        </div>
+                                    </div>
+									<div class="dollar-container">
+										<div class="buttons reset-margin">
+											<button class="button-style dollar-button dolr-two">Add a Dollar</button>
+										</div>
+									</div>
+									
+									<div class="amount-container">
+										<h4 class="reset-margin">Please Enter Amount of Money</h4>
+										<input id="amount-two" type="number" name="myInvitation" placeholder="Please enter Amount of Money">
+									</div>
+                                </div>
+
+                                <div class="other ot-two">
+                                    <h4>Enter Details</h4>
+                                    <input id="otherGift-two" type="text" name="myInvitation" placeholder="Please start typing details of gift">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="money-footer">
+                            <div class="footer-stack">
+                                <h4 class="footer-title">Details</h4>
+                                <div class="flex-details">
+									<p class="total-money money-two"></p>
+									<p class="total-detail detail-two"></p>
+								</div>
+                            </div>
+                            <button class="confirm-button button-style confirm-two">Continue</button>
+                        </div>
+                    </div>
+                </div>
+				
 
                 <!-- Step four -->
                 <div class="form-step summary-screen" data-step="4">
@@ -245,7 +338,7 @@
 							<form action="" name="form-step-4">
 								<div>
 									<div class="summary-container">
-
+									
 										<div class="name-summary">
 											<div class="column-name">
 												<h5>Name</h5>
@@ -253,24 +346,24 @@
 											</div>
 											<div class="column-name">
 												<h5>Suburb/City</h5>
-												<p class="summary-detail sm-address">Mt Roskill, Auckland</p>
+												<p class="summary-detail sm-address"></p>
 											</div>
 										</div>
-
+										
 									</div>
 								</div>
 							</form>
 						</div>
 						<div class="buttons">
-							<button class="button-style complete-button" id="confirmButton">Complete</button>
+							<button class="button-style complete-button">Complete</button>
 						</div>
 					</div>
                 </div>
-
+				
 				<div class="form-step" data-step="5">
 					<div class="inner-container">
                         <p class="form-instructions form-message-five">Thank you</p>
-
+						
 							<div>
                                 <!-- image placeholder-->
                             </div>
