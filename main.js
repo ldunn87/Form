@@ -350,7 +350,7 @@
 		
 		for(var i=0, l = data.length -1; l >= i; l--){
 			var extractedData = data[l];
-			$('.name-summary').after('<div class="gift-summary"><h4>Gift details for ' + extractedData['party'] + '</h4><div class="gift-container"><div class="column-name"><h5>Money</h5><p class="summary-detail sm-money">' + extractedData['money']  +'</p></div><div class="column-name"><h5>Other Gift</h5><p class="summary-detail sm-other">'+ extractedData['other'] + '</p></div></div></div>');
+			$('.name-summary').after('<div class="gift-summary"><h4 class="summary-heading">Gift details for ' + extractedData['party'] + '</h4><div class="gift-container"><div class="column-name"><h5>Money</h5><p class="summary-detail sm-money">' + extractedData['money']  +'</p></div><div class="column-name"><h5>Other Gift</h5><p class="summary-detail sm-other">'+ extractedData['other'] + '</p></div></div></div>');
 		}
 	}
 	
@@ -491,6 +491,7 @@
 			event.stopPropagation();
 			total += 1;
 			$(".money-one").text(total);
+			$('.money-one').show();
 			$('.total-one').show();
 		});
 		
@@ -562,30 +563,35 @@
 			total += num + 5;
 			$(".money-one").text(total);
 			$('.money-one').show();
+			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.tn-one').click(function() {
 			total += num + 10;
 			$(".money-one").text(total);
 			$('.money-one').show();
+			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.ff-one').click(function() {
 			total += num + 50;
 			$(".money-one").text(total);
 			$('.money-one').show();
+			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.tw-one').click(function() {
 			total += num + 20;
 			$(".money-one").text(total);
 			$('.money-one').show();
+			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.hn-one').click(function() {
 			total += num + 100;
 			$(".money-one").text(total);
 			$('.money-one').show();
+			$(this).unbind('click', arguments.callee);
 		});
 		
 	});
@@ -599,30 +605,35 @@
 			totalTwo += num + 5;
 			$(".money-two").text(totalTwo);
 			$('.money-two').show();
+			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.tn-two').click(function() {
 			totalTwo += num + 10;
 			$(".money-two").text(totalTwo);
 			$('.money-two').show();
+			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.ff-two').click(function() {
 			totalTwo += num + 50;
 			$(".money-two").text(totalTwo);
 			$('.money-two').show();
+			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.tw-two').click(function() {
 			totalTwo += num + 20;
 			$(".money-two").text(totalTwo);
 			$('.money-two').show();
+			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.hn-two').click(function() {
 			totalTwo += num + 100;
 			$(".money-two").text(totalTwo);
 			$('.money-two').show();
+			$(this).unbind('click', arguments.callee);
 		});
 		
 	});
