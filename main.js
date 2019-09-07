@@ -151,14 +151,16 @@
 				event.preventDefault();
 				
 				if(ui.item.value == ""){
+					$(this).blur();
 					moveToNewContact();
 				}else{
+					$(this).blur();
 					moveToSelectParty();
 				}
 			},
 			response: function(event, ui){
 				if(!ui.content.length){
-					var noresult = {value: "", label:"No Results Found - Click Here"};
+					var noresult = {value: "", label:"Name Not Found", suburb:"Sorry we cant find you name in the list", city: "Click here to proceed" };
 					ui.content.push(noresult);
 				}
 			}
@@ -200,6 +202,7 @@
 	function moveToNewContact(){
 		$('.form-step[data-step="1"]').hide();
 		$('.form-step[data-step="1.1"]').show();
+		$('#first-name').focus();
 	}
 	
 	function moveToSelectParty(){
@@ -499,6 +502,28 @@
 			$('.total-two').show();
 		});
 		
+	});
+	
+	$(function() {
+		
+		$("#first-name").on('keyup', function(e) {
+			if (e.which === 13) {
+				$('#last-name').focus();
+			}
+		});
+		
+		$("#last-name").on('keyup', function(e) {
+			if (e.which === 13) {
+				$('#suburb').focus();
+			}
+		});
+		
+		$("#suburb").on('keyup', function(e) {
+			if (e.which === 13) {
+				$('#city').focus();
+			}
+		});
+	
 	});
 
 	//function to set Message on Gift Select screen
