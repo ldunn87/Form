@@ -686,3 +686,22 @@ h4.reset-margin{
 	width: 30%;
 }
 }
+
+h4.search-name {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: #585858;
+}
+
+.ui-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    outline: 0;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.13);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}

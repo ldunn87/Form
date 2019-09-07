@@ -10,8 +10,11 @@
 			$('.landing-screen').hide();
 			$('.col1').show();
 			$('.col2').show();
+			$("#myInput").focus();
+			
 		});
 		
+		db = firebase.firestore();
 	});
 
 	function formReset() {
@@ -99,7 +102,26 @@
 	}
 
 	/*An array containing all the country names in the world:*/
-	var invitations = ["sack01", "sack02", "sack03", "sack04", "sack05"];
+	var invitations = [
+	{
+		value: "Bachubhai Patel",
+		label: "Bachubhai Patel",
+		suburb: "New Windsor",
+		city: "Auckland"
+	},
+	{
+		value: "Nilesh & Meera Bhula",
+		label: "Nilesh & Meera Bhula",
+		suburb: "Mount Eden",
+		city: "Auckland"
+	},
+	{
+		value: "Anand & Sarika Dhanji",
+		label: "Anand & Sarika Dhanji",
+		suburb: "Mount Albert",
+		city: "Auckland"
+	}
+	];
 	var gifts = ["gold", "necklace", "ear ring", "ring", "set"];
 	var name = "";
 	var fullname = "";
@@ -115,15 +137,16 @@
 	var count = 1;
 	var repeat = false;
 	var data = [];
-
+	var db;
 	/*initiate the autocomplete function on the "myInput" element, and pass along the array as possible autocomplete values:*/
 	
 	$(function() {
 		$("#myInput").autocomplete({
 			source: invitations,
 			select: function(event, ui) {
-				name = ui.item.value;
-				
+				fullname = ui.item.value;
+				address = ui.item.suburb + ", " + ui.item.city; 
+				name = ui.item.value.split(' ')[0];
 				setPartyName(name);
 				event.preventDefault();
 				
@@ -139,7 +162,11 @@
 					ui.content.push(noresult);
 				}
 			}
-		});
+		}).autocomplete('instance')._renderItem = function(ul, item) {
+			return $('<li>')
+					.append('<div><h4 class="search-name">' + item.label + '</h4>' + item.suburb + ", " + item.city + '</div>')
+					.appendTo(ul);
+		};
 
 		$("#otherGift").autocomplete({
 			source: gifts,
@@ -315,7 +342,7 @@
 	
 	function buildSummary(){
 		
-		$('.sm-name').text(name);
+		$('.sm-name').text(fullname);
 		$('.sm-address').text(address);
 		
 		for(var i=0, l = data.length -1; l >= i; l--){
@@ -338,7 +365,7 @@
 	function saveToFirebase(){
 		for(var i=0, l = data.length -1; l >= i; l--){
 			var extractedData = data[l];
-			db.collection("gifts").add({
+			firebase.firestore().collection("gifts").add({
 				name: extractedData['name'],
 				address: extractedData['address'],
 				party: extractedData['party'],
