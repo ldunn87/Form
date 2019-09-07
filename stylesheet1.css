@@ -705,3 +705,10 @@ h4.search-name {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
+
+.summary-heading {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: rgba(0, 0, 0, 0.4);
+    text-shadow: 0 1px 2px #ccd0d963;
+}
