@@ -663,29 +663,42 @@ h4.reset-margin{
 }
 
 .collapse{
-	animation-name: collapse;
-	animation-duration: 4s;
+	animation-name: collapse, move;
+	animation-duration: .5s, 1s;
+	animation-delay: 0s, 2s;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-out, ease-out;
 }
 
 
 @keyframes collapse{
 	0% {
 	transform: scale(1);
+	background-color: red; opacity: .1;
 	border-radius: 0%;
 	width: 100%;
 }
 50% {
-	background-color: orange;
+	background-color: red; opacity: .4;
 	border-radius: 2%
-	width: 60%;
+
 }
 100% {
 	transform: scale(.25);
-	background-color: yellow;
+	background-color: red;
 	border-radius: 5%
-	width: 30%;
 }
 }
+@keyframes move {
+	0% {transform: scale(.25);
+		background-color: red;
+		border-radius: 5%
+	}
+	100% {transform: scale(0);
+			opacity 0;
+			border-radius: 5%}
+}
+
 
 h4.search-name {
     margin: 0;
