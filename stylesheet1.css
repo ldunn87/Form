@@ -557,11 +557,28 @@ button.button-style {
 }
 
 p.total-money {
-    margin: 0px 0px 0px 30px;
+  margin: 0px 0px 0px 30px;
 	font-size: 2rem;
 	font-weight: 600;
 	letter-spacing: 1px;
 }
+
+p.money-highlight {
+	color: #07f;
+}
+
+.money-highlighted {
+	animation-name: money-highlighted;
+	animation-duration: 1.1s;
+	animation-direction: forwards;
+	animation-timing-function: ease-in-out;
+}
+/* TODO add in jQuery countUp https://codepen.io/hi-im-si/pen/uhxFn */
+@keyframes money-highlighted {
+	0% {background-color: yellow; opacity: .2;}
+			100% {background-color: none;}
+}
+
 
 .total-money, .sm-money:before {
 	content: '$';
@@ -664,10 +681,10 @@ h4.reset-margin{
 
 .collapse{
 	animation-name: collapse, move;
-	animation-duration: .5s, 1s;
-	animation-delay: 0s, 2s;
-	animation-fill-mode: forwards;
-	animation-timing-function: ease-out, ease-out;
+	animation-duration: 1s, 1s, 2s;
+	animation-delay: 0s, 3s;
+	animation-fill-mode: forwards, none;
+	animation-timing-function: ease-out, ease-out, ease-out;
 }
 
 
@@ -677,17 +694,20 @@ h4.reset-margin{
 	background-color: red; opacity: .1;
 	border-radius: 0%;
 	width: 100%;
+	content: "";
 }
 50% {
 	background-color: red; opacity: .4;
 	border-radius: 2%
+	content: "";
 
 }
 100% {
-	transform: scale(.25);
-	background-color: red;
+	transform: scale(.4);
 	border-radius: 5%
+	background-color: red;
 }
+
 }
 @keyframes move {
 	0% {transform: scale(.25);
@@ -699,6 +719,33 @@ h4.reset-margin{
 			border-radius: 5%}
 }
 
+.cardst .cardst1 .cardst2 .cardst3 .cardst4{
+
+}
+
+.cardst-highlight {
+	animation-name: highlighted;
+	animation-duration: 1.3s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes highlighted {
+	  0% {transform: scale(1);
+		}
+		50% {transform: scale(1.3)}
+			100% {transform: scale(1.1)}
+}
+/* adding a counter for the money */
+.counter {
+  display: table-cell;
+  margin:1.5%;
+  font-size:50px;
+  background-color: #FF6F6F;
+  width:200px;
+  border-radius: 50%;
+  height:200px;
+  vertical-align: middle;
+}
 
 h4.search-name {
     margin: 0;
