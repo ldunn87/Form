@@ -486,7 +486,7 @@
 		});
 
 		$('.confirm-two').click(function(){
-			setTimeout(function(){moveToGiftEntryTwo();},1300);
+			setTimeout(function(){multipleGiftsValidate();},1300);
 		});
 
 
