@@ -431,6 +431,7 @@
 		$(this).toggleClass('cardst-highlight');
 			setGiftDetails()
 			event.preventDefault();
+			$(".money-one").text(total);
 			$('.ma-one').show();
 			setTimeout(function(){
 				moveToGiftEntry();
@@ -585,66 +586,77 @@
 
 		$('.fv-one').click(function() {
 			total += num + 5;
-			$(".money-one").text(total);
+			//$(".money-one").text(total);
 			$('.money-one').show();
+			$('.money-one').attr('data-count', total);
 			$('.money-highlight').toggleClass('money-highlighted');
+			animateCounter();
 			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.tn-one').click(function() {
 			total += num + 10;
-			$(".money-one").text(total);
+			//$(".money-one").text(total);
 			$('.money-one').show();
+			$('.money-one').attr('data-count', total);
 			$('.money-highlight').toggleClass('money-highlighted');
+			animateCounter();
 			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.ff-one').click(function() {
 			total += num + 50;
-			$(".money-one").text(total);
+			//$(".money-one").text(total);
 			$('.money-one').show();
+			$('.money-one').attr('data-count', total);
 			$('.money-highlight').toggleClass('money-highlighted');
 			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.tw-one').click(function() {
 			total += num + 20;
-			$(".money-one").text(total);
+			//$(".money-one").text(total);
 			$('.money-one').show();
+			$('.money-one').attr('data-count', total);
 			$('.money-highlight').toggleClass('money-highlighted');
+			animateCounter();
 			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.hn-one').click(function() {
 			total += num + 100;
-			$(".money-one").text(total);
+			//$(".money-one").text(total);
 			$('.money-one').show();
+			$('.money-one').attr('data-count', total);
 			$('.money-highlight').toggleClass('money-highlighted');
+			animateCounter();
 			$(this).unbind('click', arguments.callee);
 		});
 
 	});
+	
+	function animateCounter(){
 
-//jQuery countUp
-//$('.counter').each(function() {
-//  var $this = $(this),
-//      countTo = $this.attr('data-count');
-//
-//  $({ countNum: $this.text()}).animate({
-//    countNum: countTo
-//  },
-//
-//  {
-//    duration: 4000,
-//    easing:'linear',
-//    step: function() {
-//      $this.text(Math.floor(this.countNum));
-//    },
-//    complete: function() {
-//      $this.text(this.countNum);
-//      //alert('finished');
-//    }
-//  });
+		var $this = $('.money-one');
+		var countTo = $('.money-one').attr('data-count');
+		var start = $('.money-one').text();
+
+		$({ countNum: start}).animate({
+    	countNum: countTo
+  		},
+
+  		{
+    	duration: 10000,
+    	easing:'linear',
+   		showtep: function() {
+      		$this.text(Math.floor(this.countNum));
+    	},
+    	complete: function() {
+      		$this.text(this.countNum);
+   		}
+  		});
+
+	}
 
 
 	//Fuction to handle click event and add money to total (2nd screen)

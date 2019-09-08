@@ -62,19 +62,6 @@ h1 {
 }
 
 
-/* This is to add a different color top square as background
-.section:before {
-  content: "";
-  width: 100%;
-  background: #a7b9c7;
-  height: 170px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  border-bottom: 1px solid rgba(0, 0, 0, .2);
-}*/
-
 .form-instructions {
 	text-align: left;
 	font-size: 2.5rem;
@@ -719,9 +706,6 @@ h4.reset-margin{
 			border-radius: 5%}
 }
 
-.cardst .cardst1 .cardst2 .cardst3 .cardst4{
-
-}
 
 .cardst-highlight {
 	animation-name: highlighted;
@@ -735,17 +719,7 @@ h4.reset-margin{
 		50% {transform: scale(1.3)}
 			100% {transform: scale(1.1)}
 }
-/* adding a counter for the money */
-.counter {
-  display: table-cell;
-  margin:1.5%;
-  font-size:50px;
-  background-color: #FF6F6F;
-  width:200px;
-  border-radius: 50%;
-  height:200px;
-  vertical-align: middle;
-}
+
 
 h4.search-name {
     margin: 0;
