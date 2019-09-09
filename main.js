@@ -140,7 +140,8 @@
 	var repeat = false;
 	var data = [];
 	var db;
-
+	var time = 0;
+	var timeTwo = 0;
 	//initiates the autocomplete function and pass along the array as possible autocomplete values
 
 	$(function() {
@@ -583,124 +584,159 @@
 
 		var num = 0;
 		total = 0;
+		var duration = 0;
 
 		$('.fv-one').click(function() {
 			total += num + 5;
-			//$(".money-one").text(total);
 			$('.money-one').show();
 			$('.money-one').attr('data-count', total);
 			$('.money-highlight').toggleClass('money-highlighted');
-			animateCounter();
+			duration = 5*100;
+			animateCounter(duration);
 			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.tn-one').click(function() {
 			total += num + 10;
-			//$(".money-one").text(total);
 			$('.money-one').show();
 			$('.money-one').attr('data-count', total);
 			$('.money-highlight').toggleClass('money-highlighted');
-			animateCounter();
+			duration = 5*100;
+			animateCounter(duration);
 			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.ff-one').click(function() {
 			total += num + 50;
-			//$(".money-one").text(total);
 			$('.money-one').show();
 			$('.money-one').attr('data-count', total);
 			$('.money-highlight').toggleClass('money-highlighted');
-			animateCounter();
+			duration = 5*200;
+			animateCounter(duration);
 			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.tw-one').click(function() {
 			total += num + 20;
-			//$(".money-one").text(total);
 			$('.money-one').show();
 			$('.money-one').attr('data-count', total);
 			$('.money-highlight').toggleClass('money-highlighted');
-			animateCounter();
+			duration = 5*200;
+			animateCounter(duration);
 			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.hn-one').click(function() {
 			total += num + 100;
-			//$(".money-one").text(total);
 			$('.money-one').show();
 			$('.money-one').attr('data-count', total);
 			$('.money-highlight').toggleClass('money-highlighted');
-			animateCounter();
+			duration = 5*200;
+			animateCounter(duration);
 			$(this).unbind('click', arguments.callee);
 		});
 
 	});
 	
 	function animateCounter($duration){
-
-    $('.money-one').each(function($duration) {
-        var $this = $(this),
-        countTo = $this.attr('data-count');
-        
-        $({countNum: $this.text()
-        }).animate({
-          countNum: countTo
-        },
-        {
-                    duration: 2000,
-                    easing: 'swing',
-                    step: function() {
-                                $this.text(Math.floor(this.countNum));
-        },
-                    complete: function() {
-                                $this.text(this.countNum);
-          }
-
-        });
-    });
-
-}
-
+	
+		time = $duration;
+		
+		$('.money-one').each(function() {
+			var $this = $(this),
+			countTo = $this.attr('data-count');
+			
+			$({countNum: $this.text()}).animate({
+				countNum: countTo
+				},
+				{
+				duration: time,
+				easing: 'swing',
+				step: function() {
+					$this.text(Math.floor(this.countNum));
+				},
+				complete: function() {
+				$this.text(this.countNum);
+				}
+			});
+		});
+	}
+	
+	function animateCounterTwo($duration){
+		
+		timeTwo = $duration;
+		
+		$('.money-two').each(function() {
+			var $this = $(this),
+			countTo = $this.attr('data-count');
+			
+			$({countNum: $this.text()}).animate({
+				countNum: countTo
+				},
+				{
+				duration: timeTwo,
+				easing: 'swing',
+				step: function() {
+					$this.text(Math.floor(this.countNum));
+				},
+				complete: function() {
+					$this.text(this.countNum);
+				}
+			});
+		});
+	}
+	
 
 	//Fuction to handle click event and add money to total (2nd screen)
 	$(function() {
 
 		var num = 0;
 		totalTwo = 0;
+		var duration = 0;
 
 		$('.fv-two').click(function() {
 			totalTwo += num + 5;
-			$(".money-two").text(totalTwo);
 			$('.money-two').show();
+			$('.money-two').attr('data-count', totalTwo);
+			duration = 5*100;
+			animateCounterTwo(duration);
 			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.tn-two').click(function() {
 			//todo onClick border animation
 			totalTwo += num + 10;
-			$(".money-two").text(totalTwo);
 			$('.money-two').show();
+			$('.money-two').attr('data-count', totalTwo);
+			duration = 5*100;
+			animateCounterTwo(duration);
 			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.ff-two').click(function() {
 			totalTwo += num + 50;
-			$(".money-two").text(totalTwo);
 			$('.money-two').show();
+			$('.money-two').attr('data-count', totalTwo);
+			duration = 5*200;
+			animateCounterTwo(duration);
 			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.tw-two').click(function() {
 			totalTwo += num + 20;
-			$(".money-two").text(totalTwo);
 			$('.money-two').show();
+			$('.money-two').attr('data-count', totalTwo);
+			duration = 5*200;
+			animateCounterTwo(duration);
 			$(this).unbind('click', arguments.callee);
 		});
 
 		$('.hn-two').click(function() {
 			totalTwo += num + 100;
-			$(".money-two").text(totalTwo);
 			$('.money-two').show();
+			$('.money-two').attr('data-count', totalTwo);
+			duration = 5*200;
+			animateCounterTwo(duration);
 			$(this).unbind('click', arguments.callee);
 		});
 

@@ -1,3 +1,4 @@
+
 body {
 	background: #6d7f8c;
 	line-height: 1.45rem;
@@ -65,8 +66,7 @@ h1 {
 .form-instructions {
 	text-align: left;
 	font-size: 2.5rem;
-	line-height: 1.25;
-	letter-spacing: 1.2px;
+	line-height: 1;
 	margin: 0;
 	font-weight: 700;
 }
@@ -598,6 +598,8 @@ p.money-highlight {
 
 .ui-menu-item{
 	color: #00000080;
+	padding: 7px 5px;
+	border-bottom: 1px solid #f1f1f1bd;
 }
 
 p.start {
@@ -745,4 +747,8 @@ h4.search-name {
     font-size: 1.4rem;
     color: rgba(0, 0, 0, 0.4);
     text-shadow: 0 1px 2px #ccd0d963;
+}
+
+input[type=text], input[type=button]{
+	outline: none;
 }
