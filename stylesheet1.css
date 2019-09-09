@@ -477,7 +477,7 @@ h3 {
 .money-card::before, .money-card::after {
 	box-sizing: inherit;
   content: '';
-  position: absolute;
+	position: absolute;
   width: 100%;
   height: 100%;
 }
@@ -763,47 +763,48 @@ h4.reset-margin{
 .collapse-active {
 
 }
-
+/* summary screen transition */
 .collapse{
-	animation-name: collapse, move;
-	animation-duration: 1s, 1s, 2s;
-	animation-delay: 0s, 3s;
-	animation-fill-mode: forwards, none;
-	animation-timing-function: ease-out, ease-out, ease-out;
+	animation-name: swirl;
+	animation-duration: .6s;
+	animation-fill-mode: both;
+	animation-timing-function: ease-in;
+}
+
+@keyframes swirl {
+  0% {
+		transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+		transform: rotate(-540deg) scale(0);
+    opacity: 0;
+  }
 }
 
 
-@keyframes collapse{
-	0% {
-	transform: scale(1);
-	background-color: red; opacity: .1;
-	border-radius: 0%;
-	width: 100%;
-	content: "";
-}
-50% {
-	background-color: red; opacity: .4;
-	border-radius: 2%
-	content: "";
 
-}
-100% {
-	transform: scale(.4);
-	border-radius: 5%
-	background-color: red;
-}
-
-}
-@keyframes move {
-	0% {transform: scale(.25);
-		background-color: red;
-		border-radius: 5%
+	/*
+	@keyframes collapse{
+		0% {
+		transform: scale(1);
+		background-color: red; opacity: .1;
+		border-radius: 0%;
+		width: 100%;
+		content: "";
 	}
-	100% {transform: scale(0);
-			opacity 0;
-			border-radius: 5%}
-}
+	50% {
+		background-color: red; opacity: .4;
+		border-radius: 2%
+		content: "";
 
+	}
+	100% {
+		transform: scale(.4);
+		border-radius: 5%
+		background-color: red;
+	}
+	*/
 
 .cardst-highlight {
 	animation-name: highlighted;
