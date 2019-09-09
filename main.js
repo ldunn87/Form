@@ -635,28 +635,30 @@
 
 	});
 	
-	function animateCounter(){
+	function animateCounter($duration){
 
-		var $this = $('.money-one');
-		var countTo = $('.money-one').attr('data-count');
-		var start = $('.money-one').text();
+    $('.money-one').each(function($duration) {
+        var $this = $(this),
+        countTo = $this.attr('data-count');
+        
+        $({countNum: $this.text()
+        }).animate({
+          countNum: countTo
+        },
+        {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function() {
+                                $this.text(Math.floor(this.countNum));
+        },
+                    complete: function() {
+                                $this.text(this.countNum);
+          }
 
-		$({ countNum: start}).animate({
-    	countNum: countTo
-  		},
+        });
+    });
 
-  		{
-    	duration: 10000,
-    	easing:'linear',
-   		showtep: function() {
-      		$this.text(Math.floor(this.countNum));
-    	},
-    	complete: function() {
-      		$this.text(this.countNum);
-   		}
-  		});
-
-	}
+}
 
 
 	//Fuction to handle click event and add money to total (2nd screen)
