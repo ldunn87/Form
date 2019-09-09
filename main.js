@@ -637,15 +637,15 @@
 		});
 
 	});
-	
+
 	function animateCounter($duration){
-	
+
 		time = $duration;
-		
+
 		$('.money-one').each(function() {
 			var $this = $(this),
 			countTo = $this.attr('data-count');
-			
+
 			$({countNum: $this.text()}).animate({
 				countNum: countTo
 				},
@@ -661,15 +661,15 @@
 			});
 		});
 	}
-	
+
 	function animateCounterTwo($duration){
-		
+
 		timeTwo = $duration;
-		
+
 		$('.money-two').each(function() {
 			var $this = $(this),
 			countTo = $this.attr('data-count');
-			
+
 			$({countNum: $this.text()}).animate({
 				countNum: countTo
 				},
@@ -685,7 +685,7 @@
 			});
 		});
 	}
-	
+
 
 	//Fuction to handle click event and add money to total (2nd screen)
 	$(function() {
@@ -704,7 +704,6 @@
 		});
 
 		$('.tn-two').click(function() {
-			//todo onClick border animation
 			totalTwo += num + 10;
 			$('.money-two').show();
 			$('.money-two').attr('data-count', totalTwo);
