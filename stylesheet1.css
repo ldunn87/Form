@@ -450,34 +450,40 @@ h3 {
 }
 
 .money-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
-	align-items: flex-end;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-align: end;
+	    -ms-flex-align: end;
+	        align-items: flex-end;
 }
-/* money cards */
+
 .money-card {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
-	flex-basis: 20%;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-ms-flex-preferred-size: 20%;
+	    flex-basis: 20%;
+	box-shadow: inset 0 0 0 1px #e1e0e0;
 	border-radius: 10px;
 	text-align: center;
-	background: none;
-  border: 0;
-  box-sizing: border-box;
-  margin: 1em;
-  padding: 1em 2em;
-  box-shadow: inset 0 0 0 2px #8e9194;
-  color: #8e9194;
-  font-size: inherit;
-  font-weight: 700;
-  position: relative;
-  vertical-align: middle;
+	margin: 0 5px;
+	position: relative;
+	box-sizing: border-box;
 }
 
 .money-card::before, .money-card::after {
 	box-sizing: inherit;
   content: '';
-	position: absolute;
+  position: absolute;
   width: 100%;
   height: 100%;
 }
@@ -518,7 +524,6 @@ h3 {
   border-left-color: #00c853;
   transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
 }
-
 
 h2.card-header {
 	font-size: 1rem;
@@ -763,7 +768,7 @@ h4.reset-margin{
 .collapse-active {
 
 }
-/* summary screen transition */
+
 .collapse{
 	animation-name: swirl;
 	animation-duration: .6s;
@@ -782,29 +787,6 @@ h4.reset-margin{
   }
 }
 
-
-
-	/*
-	@keyframes collapse{
-		0% {
-		transform: scale(1);
-		background-color: red; opacity: .1;
-		border-radius: 0%;
-		width: 100%;
-		content: "";
-	}
-	50% {
-		background-color: red; opacity: .4;
-		border-radius: 2%
-		content: "";
-
-	}
-	100% {
-		transform: scale(.4);
-		border-radius: 5%
-		background-color: red;
-	}
-	*/
 
 .cardst-highlight {
 	animation-name: highlighted;
