@@ -610,6 +610,7 @@
 			$('.money-one').show();
 			$('.money-one').attr('data-count', total);
 			$('.money-highlight').toggleClass('money-highlighted');
+			animateCounter();
 			$(this).unbind('click', arguments.callee);
 		});
 
