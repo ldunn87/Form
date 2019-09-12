@@ -357,7 +357,7 @@
 
 		for(var i=0, l = data.length -1; l >= i; l--){
 			var extractedData = data[l];
-			$('.name-summary').after('<div class="gift-summary"><h4 class="summary-heading">Gift details for ' + extractedData['party'] + '</h4><div class="gift-container"><div class="column-name"><h5>Money</h5><p class="summary-detail sm-money">' + extractedData['money']  +'</p></div><div class="column-name"><h5>Other Gift</h5><p class="summary-detail sm-other">'+ extractedData['other'] + '</p></div></div></div>');
+			$('.name-summary').after('<div class="gift-summary"><h4 class="summary-heading">Gift details for ' + extractedData['party'] + '</h4><div class="gift-container slide-in-field-delay2"><div class="column-name"><h5>Money</h5><p class="summary-detail sm-money slide-in-field-delay3">' + extractedData['money']  +'</p></div><div class="column-name"><h5>Other Gift</h5><p class="summary-detail sm-other">'+ extractedData['other'] + '</p></div></div></div>');
 		}
 	}
 
@@ -445,7 +445,9 @@
 			setGiftDetails()
 			event.preventDefault();
 			$('.ot-one').show();
-			setTimeout(moveToGiftEntry(),1300);
+			setTimeout(function(){
+				moveToGiftEntry();
+			},1200);
 		});
 //gift & money cards
 		$('.mnjw-one').click(function() {
@@ -454,7 +456,9 @@
 			both = true;
 			event.preventDefault();
 			multipleGifts();
-			setTimeout(moveToGiftEntry(),1300);
+			setTimeout(function(){
+				moveToGiftEntry();
+			},1200);
 		});
 //money cards
 		$('.mn-two').click(function() {
@@ -462,8 +466,9 @@
 			setGiftDetails()
 			event.preventDefault();
 			$('.ma-two').show();
-			setTimeout(function(){moveToGiftEntryTwo();},1300);
-
+			setTimeout(function(){
+				moveToGiftEntryTwo();
+			},1200);
 		});
 //gift cards
 		$('.jw-two').click(function() {
@@ -471,7 +476,9 @@
 			setGiftDetails()
 			event.preventDefault();
 			$('.ot-two').show();
-			setTimeout(function(){moveToGiftEntryTwo();},1300);
+			setTimeout(function(){
+				moveToGiftEntryTwo();
+			},1200);
 		});
 //gift & money cards
 		$('.mnjw-two').click(function() {
@@ -480,7 +487,9 @@
 			both = true;
 			event.preventDefault();
 			multipleGifts();
-			setTimeout(function(){moveToGiftEntryTwo();},1300);
+			setTimeout(function(){
+				moveToGiftEntryTwo();
+			},1200);
 		});
 
 		$('.confirm-one').click(function(){

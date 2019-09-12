@@ -51,9 +51,64 @@ h1 {
 
 /* Form transitions */
 
-.inner-container {
+.slide-in-field{
+	-webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	-webkit-animation-delay: .4s;
+				animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+				animation-delay: .4s;
+}
+
+.slide-in-field-delay1 {
+	-webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	-webkit-animation-delay: .2s;
+				animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+				animation-delay: .2s;
+}
+
+.slide-in-field-delay2 {
+	-webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	-webkit-animation-delay: .4s;
+				animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+				animation-delay: .4s;
+}
+
+.slide-in-field-delay3 {
+	-webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	-webkit-animation-delay: .6s;
+				animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+				animation-delay: .6s;
+}
+
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(600px);
+            transform: translateX(600px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.guest-card1{
 	-webkit-animation: maximise 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	-webkit-animation-delay: .6s;
 	        animation: maximise 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+					animation-delay: .6s;
+}
+.guest-card2{
+	-webkit-animation: maximise 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	-webkit-animation-delay: .4s;
+	        animation: maximise 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+					animation-delay: .4s;
+}
+.guest-card3{
+	-webkit-animation: maximise 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	-webkit-animation-delay: .2s;
+	        animation: maximise 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+					animation-delay: .2s;
 }
 
 @-webkit-keyframes maximise {
@@ -88,7 +143,7 @@ h1 {
 	-webkit-animation-fill-mode: both;
 	-webkit-animation-delay: .5s;
 	animation: text-expand;
-	animation-duration: 0.7s;
+	animation-duration: 1.5s;
 	animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
 	animation-fill-mode: both;
 	animation-delay: .5s;
