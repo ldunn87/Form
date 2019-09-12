@@ -143,6 +143,41 @@ h1 {
 					animation-delay: .2s;
 }
 
+.slide-five {
+	-webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	-webkit-animation-delay: .2s;
+					animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+					animation-delay: .2s;
+}
+
+.slide-ten {
+	-webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	-webkit-animation-delay: .4s;
+					animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+					animation-delay: .4s;
+}
+
+.slide-twenty {
+	-webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	-webkit-animation-delay: .6s;
+					animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+					animation-delay: .6s;
+}
+
+.slide-fifty {
+	-webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	-webkit-animation-delay: .8s;
+					animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+					animation-delay: .8s;
+}
+
+.slide-hundred {
+	-webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	-webkit-animation-delay: 1s;
+					animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+					animation-delay: 1s;
+}
+
 @-webkit-keyframes maximise {
   0% {
     -webkit-transform: scale(0);
@@ -221,7 +256,7 @@ h1 {
 
 
 .form-instructions {
-	text-align: left;
+	text-align: center;
 	font-size: 2.5rem;
 	line-height: 1;
 	margin: 0;
@@ -650,6 +685,7 @@ h3 {
 /* default Twenty dollar card */
 .draw {
   transition: color 0.15s;
+
 }
 .draw::before, .draw::after {
   border: 2px solid transparent;
