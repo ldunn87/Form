@@ -96,6 +96,7 @@ h1 {
 	-webkit-animation-delay: .2s;
 				animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 				animation-delay: .2s;
+	overflow-x: hidden;
 }
 
 .slide-in-field-delay2 {
@@ -103,6 +104,7 @@ h1 {
 	-webkit-animation-delay: .4s;
 				animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 				animation-delay: .4s;
+	overflow-x: hidden;
 }
 
 .slide-in-field-delay3 {
@@ -110,6 +112,7 @@ h1 {
 	-webkit-animation-delay: .6s;
 				animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 				animation-delay: .6s;
+	overflow-x: hidden;
 }
 
 @keyframes slide-in-right {
