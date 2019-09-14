@@ -601,11 +601,11 @@ body {
 	flex-basis: 30%;
 }
 
-img.avatar-select {
-	width: 5rem;
-	height: 5rem;
+.avatar-select {
+	width: 6rem;
+	height: 6rem;
 	margin: 0 auto;
-	border: 1px solid #9098a9d1;
+	border: 1px solid rgba(0,0,0,.0975);
 	border-radius: 50%;
 }
 
@@ -1133,4 +1133,22 @@ button{
 
 ui-menu-item:hover{
 
+}
+
+.both{
+	background-image: url(both.jpg);
+	background-size: cover;
+	background-position: center center;
+}
+
+.groom{
+	background-image: url(groom.jpg);
+	background-size: cover;
+	background-position: center center;
+}
+
+.bride{
+	background-image: url(bride.jpg);
+	background-size: cover;
+	background-position: center center;
 }
