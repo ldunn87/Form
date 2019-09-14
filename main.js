@@ -43,6 +43,7 @@
 		$(".total-money").text('');
 		$('#both').val('');
 		$("#otherGift").val('');
+		$("#otherGift-two").val('');
 		$("#myInput").val('');
 		$('#new-contact').trigger("reset");
 		$( ".gift-summary" ).remove();
@@ -92,8 +93,6 @@
 
 		return false;
 	}
-
-
 
 	// Starts
 	function init() {
@@ -327,6 +326,7 @@
 		setGiftDetails();
 		both = false;
 		repeat = false;
+		$('.confirm-two').text('Continue');
 		$('.form-step[data-step="3.1"]').hide();
 		setTimeout(
 			function(){
@@ -386,7 +386,7 @@
 
 		for(var i=0, l = data.length -1; l >= i; l--){
 			var extractedData = data[l];
-			$('.name-summary').after('<div class="gift-summary"><h4 class="summary-heading text-focus-in">Gift details for ' + extractedData['party'] + '</h4><div class="gift-container slide-in-field-delay2"><div class="column-name"><h5>Money</h5><p class="summary-detail sm-money slide-in-field-delay3">' + extractedData['money']  +'</p></div><div class="column-name"><h5>Other Gift</h5><p class="summary-detail sm-other">'+ extractedData['other'] + '</p></div></div></div>');
+			$('.name-summary').after('<div class="gift-summary"><h4 class="summary-heading text-focus-in">Gift details for ' + extractedData['party'] + '</h4><div class="gift-container slide-in-field-delay2"><div class="column-name" style=' + (extractedData['money'] < 1 ? "display:none;" : "display:block;") + '"><h5>Money</h5><p class="summary-detail sm-money slide-in-field-delay3">' + extractedData['money']  +'</p></div><div class="column-name" style=' + (extractedData['other'].length < 1 ? "display:none;" : "display:block;") + '"><h5>Other Gift</h5><p class="summary-detail sm-other">'+ extractedData['other'] + '</p></div></div></div>');
 		}
 	}
 
@@ -529,7 +529,6 @@
 			multipleGiftsValidate();
 		});
 
-
 		$('.complete-button').click(function(){
 			$('.collapse-active').toggleClass('collapse');
 			saveToFirebase();
@@ -559,17 +558,24 @@
 			event.preventDefault();
 			event.stopPropagation();
 			total += 1;
+			$('.money-one').attr('data-count', total);
 			$(".money-one").text(total);
 			$('.money-one').show();
 			$('.total-one').show();
+			duration = 5*100;
+			animateCounter(duration);
 		});
 //add extra dollar
 		$('.dolr-two').click(function(event){
 			event.preventDefault();
 			event.stopPropagation();
 			totalTwo += 1;
+			$('.money-two').attr('data-count', totalTwo);
 			$(".money-two").text(totalTwo);
+			$(".money-two").show();
 			$('.total-two').show();
+			duration = 5*100;
+			animateCounterTwo(duration);
 		});
 
 	});
