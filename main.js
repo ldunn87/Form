@@ -190,8 +190,15 @@
 				}else{
 					$(".detail-one").text(otherFirst);
 				}
+			},
+			response: function(event, ui){
+					if(ui.content.length == 0){
+						ui.content.push({
+							label: "Other Item: " + $(this).val(),
+							value: $(this).val()
+						});
+					}
 			}
-
 		});
 
 		$("#otherGift-two").autocomplete({
@@ -204,8 +211,15 @@
 				}else{
 					$(".detail-two").text(otherSecond);
 				}
+			},
+			response: function(event, ui){
+					if(ui.content.length == 0){
+						ui.content.push({
+							label: "Other Item: " + $(this).val(),
+							value: $(this).val()
+						});
+					}
 			}
-
 		});
 	});
 //functions to show/hide sceens
@@ -312,17 +326,18 @@
 		setGiftName(party);
 		setGiftDetails();
 		both = false;
+		repeat = false;
 		$('.form-step[data-step="3.1"]').hide();
 		setTimeout(
 			function(){
 				moveToSelectGiftTwo();
-			},1300);
+			},800);
 
 	}
 
 	function multipleGiftsValidate(){
 
-		if($('#both').val() == 'Both'){
+		if($('#both').val() == 'Both' && repeat == false){
 			if( $('.confirm-two').text() == 'Next' ){
 				$('.confirm-two').text('Continue');
 				$('.ma-two').hide();
@@ -331,7 +346,15 @@
 				saveData(party, totalTwo, otherSecond);
 				setTimeout(moveToSummary(),1300);
 			}
-
+		}else if($('#both').val() == 'Both' && repeat == true){
+			if( $('.confirm-one').text() == 'Next' ){
+				$('.confirm-one').text('Continue');
+				$('.ma-one').hide();
+				$('.ot-one').show();
+			}else{
+				saveData(party, total, otherFirst);
+				bothPartyGifts();
+			}
 		}else{
 			if( $('.confirm-one').text() == 'Next' ){
 				$('.confirm-one').text('Continue');
@@ -371,8 +394,8 @@
 		var bothParties = $('#both').val();
 
 		if(bothParties == 'Both'){
-			saveData(party, total, otherFirst);
-			bothPartyGifts();
+			repeat = true;
+			multipleGiftsValidate()
 		}else{
 			multipleGiftsValidate();
 		}
@@ -503,7 +526,7 @@
 		});
 
 		$('.confirm-two').click(function(){
-			setTimeout(function(){multipleGiftsValidate();},1300);
+			multipleGiftsValidate();
 		});
 
 
@@ -529,7 +552,7 @@
 				setPartyName(name);
 				moveToSelectParty();
 			}
-			
+
 		});
 //add extra dollar
 		$('.dolr-one').click(function(event){

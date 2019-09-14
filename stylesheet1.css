@@ -613,7 +613,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	flex-basis: 100%;
-	border-radius: 10px;
 	align-items: center;
 	justify-content: space-evenly;
 	background-image: url(landing-bg.jpg);
@@ -1125,6 +1124,7 @@ h4.search-name {
 
 input[type=text]{
 	outline: none;
+	text-transform: capitalize;
 }
 
 button{
