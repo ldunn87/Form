@@ -120,6 +120,12 @@
 		label: "Anand & Sarika Dhanji",
 		suburb: "Mount Albert",
 		city: "Auckland"
+	},
+	{
+		value: "John & Raakhee Pinto",
+		label: "John & Raakhee Pinto",
+		suburb: "West Harbour",
+		city: "Auckland"
 	}
 	];
 
@@ -357,7 +363,7 @@
 
 		for(var i=0, l = data.length -1; l >= i; l--){
 			var extractedData = data[l];
-			$('.name-summary').after('<div class="gift-summary"><h4 class="summary-heading">Gift details for ' + extractedData['party'] + '</h4><div class="gift-container slide-in-field-delay2"><div class="column-name"><h5>Money</h5><p class="summary-detail sm-money slide-in-field-delay3">' + extractedData['money']  +'</p></div><div class="column-name"><h5>Other Gift</h5><p class="summary-detail sm-other">'+ extractedData['other'] + '</p></div></div></div>');
+			$('.name-summary').after('<div class="gift-summary"><h4 class="summary-heading text-focus-in">Gift details for ' + extractedData['party'] + '</h4><div class="gift-container slide-in-field-delay2"><div class="column-name"><h5>Money</h5><p class="summary-detail sm-money slide-in-field-delay3">' + extractedData['money']  +'</p></div><div class="column-name"><h5>Other Gift</h5><p class="summary-detail sm-other">'+ extractedData['other'] + '</p></div></div></div>');
 		}
 	}
 
@@ -517,8 +523,13 @@
 			name = _fname;
 			fullname = _fname + " " + _lname;
 			address = _suburb + "," + _city;
-			setPartyName(name);
-			moveToSelectParty();
+			if( _fname.length < 1 && _lname.length < 1 && _suburb.length < 1 && _city.length < 1 ){
+				console.log("all fields not filled in");
+			}else{
+				setPartyName(name);
+				moveToSelectParty();
+			}
+			
 		});
 //add extra dollar
 		$('.dolr-one').click(function(event){
