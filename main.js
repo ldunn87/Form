@@ -1,14 +1,12 @@
-
-	var $body = $('body');
-
 	// Resets the form back to the default state.
 
 	$( document ).ready(function() {
 		init();
-
+		$("body").show().fadeIn(5000);
 		$('.start').click(function() {
 			$('.landing-screen').hide();
 			$('.col1').show();
+			$('.form-step[data-step="1"]').show();
 			$('.col2').show();
 			$("#myInput").focus();
 
@@ -18,7 +16,6 @@
 	});
 
 	function formReset() {
-
 		$('.step[data-step="1"]').removeClass('step--complete').addClass('step--incomplete');
 		$('.step[data-step="1"]').nextAll().removeClass('step--complete').addClass('step--incomplete');
 		$('.step[data-step="1"]').nextAll().removeClass('step--active').addClass('step--inactive');
@@ -30,7 +27,7 @@
 		$('.money-area').hide();
 		$('.amount-container').hide();
 		$('.other').hide();
-		$('.form-step[data-step="1"]').show();
+		$('.form-step[data-step="1"]').hide();
 		$('.form-step[data-step="1.1"]').hide();
 		$('.form-step[data-step="2"]').hide();
 		$('.form-step[data-step="3"]').hide();
@@ -41,12 +38,15 @@
 		$('.form-step[data-step="5"]').hide();
 		$(".total-detail").text('');
 		$(".total-money").text('');
+		$(".total-money").hide();
 		$('#both').val('');
 		$("#otherGift").val('');
 		$("#otherGift-two").val('');
 		$("#myInput").val('');
 		$('#new-contact').trigger("reset");
 		$( ".gift-summary" ).remove();
+		$('.money-one').attr('data-count', 0);
+		$('.money-two').attr('data-count', 0);
 		name = "";
 		fullname = "";
 		address = "";
@@ -314,10 +314,16 @@
 		currentStep.removeClass('step--active').addClass('step--inactive');
 		currentStep.next().removeClass('step--inactive').addClass('step--active');
 
+
 		setTimeout(function() {
-			formReset();
-		}, 2000);
+			$( "body" ).fadeOut( "fast" );
+			setTimeout(function() {
+				location.reload(false);
+			}, 500);
+		}, 3000);
+
 	}
+
 
 	function bothPartyGifts(){
 
