@@ -997,6 +997,7 @@ p.summary-detail {
     letter-spacing: 1px;
     font-size: 1.3rem;
     font-weight: 300;
+		overflow: hidden;
 }
 
 .column-name {

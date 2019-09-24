@@ -349,12 +349,15 @@
 				$('.ot-two').show();
 				$('otherGift-two').focus();
 			}else{
-				if(otherSecond == '' || otherSecond == null){
+				if($('.ot-two').is(":visible") && otherFirst == ''){
 					$('otherGift-two').focus();
+				}else if ($('.ma-two').is(":visible") && totalTwo <= 0){
+					consol.log('no money');
 				}else{
 					saveData(party, totalTwo, otherSecond);
 					setTimeout(moveToSummary(),1300);
 				}
+
 			}
 		}else if($('#both').val() == 'Both' && repeat == true){
 			if( $('.confirm-one').text() == 'Next' ){
@@ -363,8 +366,10 @@
 				$('.ot-one').show();
 				$("#otherGift").focus();
 			}else{
-				if(otherFirst == '' || otherFirst == null){
+				if($('.ot-one').is(":visible") && otherFirst == ''){
 					$('otherGift').focus();
+				}else if ($('.ma-one').is(":visible") && total <= 0){
+					consol.log('no money');
 				}else{
 					saveData(party, total, otherFirst);
 					bothPartyGifts();
@@ -377,8 +382,10 @@
 				$('.ot-one').show();
 				$("#otherGift").focus();
 			}else{
-				if(otherFirst == '' || otherFirst == null){
+				if( $('.ot-one').is(":visible") && otherFirst == ''){
 					$('otherGift').focus();
+				}else if ($('.ma-one').is(":visible") && total <= 0){
+					consol.log('no money');
 				}else{
 					saveData(party, total, otherFirst);
 					setTimeout(moveToSummary(),1300);
