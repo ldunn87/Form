@@ -324,7 +324,6 @@
 
 	}
 
-
 	function bothPartyGifts(){
 
 		party = groom;
@@ -348,27 +347,42 @@
 				$('.confirm-two').text('Continue');
 				$('.ma-two').hide();
 				$('.ot-two').show();
+				$('otherGift-two').focus();
 			}else{
-				saveData(party, totalTwo, otherSecond);
-				setTimeout(moveToSummary(),1300);
+				if(otherSecond == '' || otherSecond == null){
+					$('otherGift-two').focus();
+				}else{
+					saveData(party, totalTwo, otherSecond);
+					setTimeout(moveToSummary(),1300);
+				}
 			}
 		}else if($('#both').val() == 'Both' && repeat == true){
 			if( $('.confirm-one').text() == 'Next' ){
 				$('.confirm-one').text('Continue');
 				$('.ma-one').hide();
 				$('.ot-one').show();
+				$("#otherGift").focus();
 			}else{
-				saveData(party, total, otherFirst);
-				bothPartyGifts();
+				if(otherFirst == '' || otherFirst == null){
+					$('otherGift').focus();
+				}else{
+					saveData(party, total, otherFirst);
+					bothPartyGifts();
+				}
 			}
 		}else{
 			if( $('.confirm-one').text() == 'Next' ){
 				$('.confirm-one').text('Continue');
 				$('.ma-one').hide();
 				$('.ot-one').show();
+				$("#otherGift").focus();
 			}else{
-				saveData(party, total, otherFirst);
-				setTimeout(moveToSummary(),1300);
+				if(otherFirst == '' || otherFirst == null){
+					$('otherGift').focus();
+				}else{
+					saveData(party, total, otherFirst);
+					setTimeout(moveToSummary(),1300);
+				}
 			}
 		}
 	}
@@ -527,11 +541,16 @@
 			},1200);
 		});
 
-		$('.confirm-one').click(function(){
+		$('.confirm-one').click(function(e){
+			e.preventDefault();
+			e.stopPropagation();
+			$('.money-card').unbind('click', arguments.callee);
 			controlLoop();
 		});
 
-		$('.confirm-two').click(function(){
+		$('.confirm-two').click(function(e){
+			e.preventDefault();
+			e.stopPropagation();
 			multipleGiftsValidate();
 		});
 
@@ -557,7 +576,36 @@
 				setPartyName(name);
 				moveToSelectParty();
 			}
+		});
 
+		$('.clear-one').click(function(){
+			var buttonText = $('.confirm-one').text();
+
+			if( $('.money-area').is(":visible") && buttonText == 'Continue' || $('.money-area').is(":visible") && buttonText == 'Next'){
+				total = 0;
+				$('.money-one').attr('data-count', 0);
+				$('.money-one').text('0');
+			}else{
+				$('.detail-one').text('');
+				$("#otherGift").val('');
+				$("#otherGift").focus();
+				otherFirst = "";
+			}
+		});
+
+		$('.clear-two').click(function(){
+			var buttonText = $('.confirm-two').text();
+
+			if( $('.ma-two').is(":visible") && buttonText == 'Continue' || $('.ma-two').is(":visible") && buttonText == 'Next'){
+				totalTwo = 0;
+				$('.money-two').attr('data-count', 0);
+				$('.money-two').text('0');
+			}else{
+				$('.detail-two').text('');
+				$("#otherGift-two").val('');
+				$("#otherGift-two").focus();
+				otherSecond = "";
+			}
 		});
 //add extra dollar
 		$('.dolr-one').click(function(event){
@@ -641,55 +689,88 @@
 		total = 0;
 		var duration = 0;
 
-		$('.fv-one').click(function() {
+		$('.fv-one').click(handler);
+
+		function handler(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			$('.fv-one').unbind('click', arguments.callee);
 			total += num + 5;
 			$('.money-one').show();
 			$('.money-one').attr('data-count', total);
 			$('.money-highlight').toggleClass('money-highlighted');
 			duration = 5*100;
 			animateCounter(duration);
-			$(this).unbind('click', arguments.callee);
-		});
 
-		$('.tn-one').click(function() {
+			setTimeout(function() {
+				$('.fv-one').click(handler);
+			},2000);
+		}
+
+		$('.tn-one').click(handler1);
+
+		function handler1(e){
+			e.preventDefault();
+			e.stopPropagation();
+			$('.tn-one').unbind('click', arguments.callee);
 			total += num + 10;
 			$('.money-one').show();
 			$('.money-one').attr('data-count', total);
 			$('.money-highlight').toggleClass('money-highlighted');
 			duration = 5*100;
 			animateCounter(duration);
-			$(this).unbind('click', arguments.callee);
-		});
+			setTimeout(function() {
+				$('.tn-one').click(handler1);
+			},2000);
+		}
 
-		$('.ff-one').click(function() {
+		$('.ff-one').click(handler2);
+
+		function handler2(e) {
+			e.stopPropagation();
+			$('.ff-one').unbind('click', arguments.callee);
 			total += num + 50;
 			$('.money-one').show();
 			$('.money-one').attr('data-count', total);
 			$('.money-highlight').toggleClass('money-highlighted');
 			duration = 5*200;
 			animateCounter(duration);
-			$(this).unbind('click', arguments.callee);
-		});
+			setTimeout(function() {
+				$('.ff-one').click(handler2);
+			},2000);
+		}
 
-		$('.tw-one').click(function() {
+		$('.tw-one').click(handler3);
+
+		function handler3(e) {
+			e.stopPropagation();
+			$('.tw-one').unbind('click', arguments.callee);
 			total += num + 20;
 			$('.money-one').show();
 			$('.money-one').attr('data-count', total);
 			$('.money-highlight').toggleClass('money-highlighted');
 			duration = 5*200;
 			animateCounter(duration);
-			$(this).unbind('click', arguments.callee);
-		});
+			setTimeout(function() {
+				$('.tw-one').click(handler3);
+			},2000);
+		}
 
-		$('.hn-one').click(function() {
+		$('.hn-one').click(handler4);
+
+		function handler4(e) {
+			e.stopPropagation();
+			$('.hn-one').unbind('click', arguments.callee);
 			total += num + 100;
 			$('.money-one').show();
 			$('.money-one').attr('data-count', total);
 			$('.money-highlight').toggleClass('money-highlighted');
 			duration = 5*200;
 			animateCounter(duration);
-			$(this).unbind('click', arguments.callee);
-		});
+			setTimeout(function() {
+				$('.hn-one').click(handler4);
+			},2000);
+		}
 
 	});
 
@@ -749,50 +830,80 @@
 		totalTwo = 0;
 		var duration = 0;
 
-		$('.fv-two').click(function() {
+		$('.fv-two').click(handler5);
+
+		function handler5(e) {
+			e.stopPropagation();
+			$('.fv-two').unbind('click', arguments.callee);
 			totalTwo += num + 5;
 			$('.money-two').show();
 			$('.money-two').attr('data-count', totalTwo);
 			duration = 5*100;
 			animateCounterTwo(duration);
-			$(this).unbind('click', arguments.callee);
-		});
+			setTimeout(function() {
+				$('.fv-two').click(handler5);
+			},2000);
+		}
 
-		$('.tn-two').click(function() {
+		$('.tn-two').click(handler6);
+
+		function handler6(e) {
+			e.stopPropagation();
+			$('.tn-two').unbind('click', arguments.callee);
 			totalTwo += num + 10;
 			$('.money-two').show();
 			$('.money-two').attr('data-count', totalTwo);
 			duration = 5*100;
 			animateCounterTwo(duration);
-			$(this).unbind('click', arguments.callee);
-		});
+			setTimeout(function() {
+				$('.tn-two').click(handler6);
+			},2000);
+		}
 
-		$('.ff-two').click(function() {
+		$('.ff-two').click(handler7);
+
+		function handler7(e) {
+			e.stopPropagation();
+			$('.ff-two').unbind('click', arguments.callee);
 			totalTwo += num + 50;
 			$('.money-two').show();
 			$('.money-two').attr('data-count', totalTwo);
 			duration = 5*200;
 			animateCounterTwo(duration);
-			$(this).unbind('click', arguments.callee);
-		});
+			setTimeout(function() {
+				$('.ff-two').click(handler7);
+			},2000);
+		}
 
-		$('.tw-two').click(function() {
+		$('.tw-two').click(handler8);
+
+		function handler8(e) {
+			e.stopPropagation();
+			$('.tw-two').unbind('click', arguments.callee);
 			totalTwo += num + 20;
 			$('.money-two').show();
 			$('.money-two').attr('data-count', totalTwo);
 			duration = 5*200;
 			animateCounterTwo(duration);
-			$(this).unbind('click', arguments.callee);
-		});
+			setTimeout(function() {
+				$('.tw-two').click(handler8);
+			},2000);
+		}
 
-		$('.hn-two').click(function() {
+		$('.hn-two').click(handler9);
+
+		function handler9(e) {
+			e.stopPropagation();
+			$('.hn-two').unbind('click', arguments.callee);
 			totalTwo += num + 100;
 			$('.money-two').show();
 			$('.money-two').attr('data-count', totalTwo);
 			duration = 5*200;
 			animateCounterTwo(duration);
-			$(this).unbind('click', arguments.callee);
-		});
+			setTimeout(function() {
+				$('.hn-two').click(handler9);
+			},2000);
+		}
 
 	});
 
