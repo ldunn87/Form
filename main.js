@@ -4,12 +4,19 @@
 		init();
 		$("body").show().fadeIn(5000);
 		$('.start').click(function() {
+			$('.slit-out1').toggleClass('slit-out');
+			setTimeout(function(){
 			$('.landing-screen').hide();
 			$('.col1').show();
 			$('.form-step[data-step="1"]').show();
 			$('.col2').show();
 			$("#myInput").focus();
-
+		},900);
+//			$('.landing-screen').hide();
+//			$('.col1').show();
+//			$('.form-step[data-step="1"]').show();
+//			$('.col2').show();
+//			$("#myInput").focus();
 		});
 
 		db = firebase.firestore();
@@ -227,7 +234,7 @@
 		$('.form-step[data-step="1.1"]').show();
 		$('#first-name').focus();
 	}
-
+/////
 	function moveToSelectParty(){
 		$('.form-step[data-step="1"]').hide();
 		$('.form-step[data-step="1.1"]').hide();
@@ -563,7 +570,7 @@
 
 		$('.complete-button').click(function(){
 			$('.collapse-active').toggleClass('collapse');
-			saveToFirebase();
+//			saveToFirebase();
 			thankYouScreen();
 		});
 
