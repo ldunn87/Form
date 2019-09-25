@@ -4,7 +4,7 @@
 		init();
 		$("body").show().fadeIn(5000);
 		$('.start').click(function() {
-			$('.slit-out1').toggleClass('slit-out');
+			$('.page-open1').toggleClass('page-open');
 			setTimeout(function(){
 			$('.landing-screen').hide();
 			$('.col1').show();
