@@ -4,20 +4,20 @@
 		init();
 		$("body").show().fadeIn(5000);
 		$('.start').click(function() {
-			$('.page-open1').toggleClass('page-open');
-			setTimeout(function(){
-			$('.landing-screen').hide();
-			$('.col1').show();
-			$('.form-step[data-step="1"]').show();
-			$('.col2').show();
-			$("#myInput").focus();
-		},900);
-//			$('.landing-screen').hide();
-//			$('.col1').show();
-//			$('.form-step[data-step="1"]').show();
-//			$('.col2').show();
-//			$("#myInput").focus();
-		});
+					$('.page-open1').toggleClass('page-open');
+					setTimeout(function(){
+					$('.landing-screen').hide();
+					$('.col1').show();
+					$('.form-step[data-step="1"]').show();
+					$('.col2').show();
+					$("#myInput").focus();
+				},900);
+		//			$('.landing-screen').hide();
+		//			$('.col1').show();
+		//			$('.form-step[data-step="1"]').show();
+		//			$('.col2').show();
+		//			$("#myInput").focus();
+				});
 
 		db = firebase.firestore();
 	});
@@ -234,7 +234,7 @@
 		$('.form-step[data-step="1.1"]').show();
 		$('#first-name').focus();
 	}
-/////
+
 	function moveToSelectParty(){
 		$('.form-step[data-step="1"]').hide();
 		$('.form-step[data-step="1.1"]').hide();
@@ -356,7 +356,7 @@
 				$('.ot-two').show();
 				$('otherGift-two').focus();
 			}else{
-				if($('.ot-two').is(":visible") && otherFirst == ''){
+				if($('.ot-two').is(":visible") && otherSecond == ''){
 					$('otherGift-two').focus();
 				}else if ($('.ma-two').is(":visible") && totalTwo <= 0){
 					consol.log('no money');
@@ -570,7 +570,7 @@
 
 		$('.complete-button').click(function(){
 			$('.collapse-active').toggleClass('collapse');
-//			saveToFirebase();
+			saveToFirebase();
 			thankYouScreen();
 		});
 
