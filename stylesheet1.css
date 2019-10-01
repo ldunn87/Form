@@ -126,8 +126,6 @@ h1 {
   }
 }
 
-/* card icon animations */
-
 .guest-card1{
 	-webkit-animation: maximise 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	-webkit-animation-delay: .6s;
@@ -146,9 +144,6 @@ h1 {
 	        animation: maximise 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 					animation-delay: .2s;
 }
-
-
-/* Money cards slide in */
 
 .slide-five {
 	-webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -644,29 +639,6 @@ h3 {
 	font-size: 0.9rem;
 }
 
-/* Money/Jewelery/Both card icon animations */
-
-.fa-money-bill-wave:hover {
-	--fa-primary-color: #367a39;
-	--fa-primary-opacity: 1.0;
-	--fa-secondary-color: #4caf50;
-	--fa-secondary-opacity: 0.4;
-}
-
-.fa-ring:hover {
-	--fa-primary-color: gold;
-	--fa-primary-opacity: 1.0;
-	--fa-secondary-color: gold;
-	--fa-secondary-opacity: 0.5;
-}
-
-.fa-gifts:hover {
-	--fa-primary-color: gold;
-	--fa-primary-opacity: 1.0;
-	--fa-secondary-color: red;
-	--fa-secondary-opacity: 0.9;
-}
-
 .money-container {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -945,6 +917,7 @@ p.start {
 		-webkit-animation-delay: 3s;
 		        animation: shake-top 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 						animation-delay: 3s;
+		cursor: pointer;
 }
 
 @-webkit-keyframes shake-top {
@@ -1130,6 +1103,7 @@ h4.search-name {
     font-weight: 500;
     text-transform: capitalize;
     color: #585858;
+		letter-spacing: 0.5px;
 }
 
 .ui-menu {
@@ -1208,39 +1182,68 @@ button.clear-button {
 	.page-open1{
 	}
 	.page-open{
-		-webkit-animation: page-open 1s cubic-bezier(0.600, 0.200, 0.735, 0.045) both;
-		        animation: page-open 1s cubic-bezier(0.600, 0.200, 0.735, 0.045) both;
+		-webkit-animation: flip-out-ver-left 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+		        animation: flip-out-ver-left 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 	}
 
-	@-webkit-keyframes page-open{
+	@-webkit-keyframes flip-out-ver-left {
 	  0% {
 	    -webkit-transform: rotateY(0);
 	            transform: rotateY(0);
-	    -webkit-transform-origin: left;
-	            transform-origin: left;
 	    opacity: 1;
 	  }
 	  100% {
 	    -webkit-transform: rotateY(-70deg);
 	            transform: rotateY(-70deg);
-	    -webkit-transform-origin: left;
-	            transform-origin: left;
 	    opacity: 0;
 	  }
 	}
-	@keyframes page-open{
+	@keyframes flip-out-ver-left {
 	  0% {
 	    -webkit-transform: rotateY(0);
 	            transform: rotateY(0);
-	    -webkit-transform-origin: left;
-	            transform-origin: left;
 	    opacity: 1;
 	  }
 	  100% {
 	    -webkit-transform: rotateY(-70deg);
 	            transform: rotateY(-70deg);
-	    -webkit-transform-origin: left;
-	            transform-origin: left;
 	    opacity: 0;
 	  }
 	}
+
+	.fa-money-bill-wave:hover {
+		--fa-primary-color: #367a39;
+		--fa-primary-opacity: 1.0;
+		--fa-secondary-color: #4caf50;
+		--fa-secondary-opacity: 0.4;
+	}
+
+	.fa-ring:hover {
+		--fa-primary-color: gold;
+		--fa-primary-opacity: 1.0;
+		--fa-secondary-color: gold;
+		--fa-secondary-opacity: 0.5;
+	}
+
+	.fa-gifts:hover {
+		--fa-primary-color: gold;
+		--fa-primary-opacity: 1.0;
+		--fa-secondary-color: red;
+		--fa-secondary-opacity: 0.9;
+	}
+
+	.anim-container{
+		min-width: 100%;
+		min-height: 100%;
+		margin: 0 auto;
+	}
+
+	.ui-menu-item:hover, .ui-menu-item:focus, .ui-menu-item:active{
+		background-color: #07f;
+		color: #fff !important;
+		padding: 6px;
+	}
+
+h4.search-name:hover, h4.search-name:focus, h4.search-name:active{
+	color: #fff;
+}
