@@ -482,15 +482,17 @@
 				$('otherGift-two').focus();
 			}else{
 				if($('.ot-two').is(":visible") && otherSecond == ''){
-					//add error borderanimation
-					$('otherGift-two').focus();
+					$('#otherGift-two').addClass('error');
+					$('#otherGift-two').focus();
 				}else if ($('.ma-two').is(":visible") && totalTwo <= 0){
-					//add error borderanimation
+					$('#amount-two').addClass('error');
 					$('#amount-two').focus();
-					consol.log('no money');
+					console.log('no money');
 				}else{
 					entryStep = "3.3";
 					saveData(party, totalTwo, otherSecond);
+					$('#otherGift-two').removeClass('error');
+					$('#amount-two').removeClass('error');
 					setTimeout(moveToSummary(),1300);
 				}
 
@@ -503,15 +505,17 @@
 				$("#otherGift").focus();
 			}else{
 				if($('.ot-one').is(":visible") && otherFirst == ''){
-					//add error borderanimation
-					$('otherGift').focus();
+					$('#otherGift').addClass('error');
+					$('#otherGift').focus();
 				}else if ($('.ma-one').is(":visible") && total <= 0){
-					//add error borderanimation
+					$('#amount-one').addClass('error');
 					$('#amount-one').focus();
-					consol.log('no money');
+					console.log('no money');
 				}else{
 					entryStep = "3.1";
 					saveData(party, total, otherFirst);
+					$('#otherGift').removeClass('error');
+					$('#amount-one').removeClass('error');
 					bothPartyGifts();
 				}
 			}
@@ -523,15 +527,17 @@
 				$("#otherGift").focus();
 			}else{
 				if( $('.ot-one').is(":visible") && otherFirst == ''){
-					//add error borderanimation
-					$('otherGift').focus();
+					$('#otherGift').focus();
+					$('#otherGift').addClass('error');
 				}else if ($('.ma-one').is(":visible") && total <= 0){
-					//add error borderanimation
 					$('#amount-one').focus();
-					consol.log('no money');
+					$('#amount-one').addClass('error');
+					console.log('no money');
 				}else{
 					entryStep = "3.1";
 					saveData(party, total, otherFirst);
+					$('#otherGift').removeClass('error');
+					$('#amount-one').removeClass('error');
 					setTimeout(moveToSummary(),1300);
 				}
 			}
